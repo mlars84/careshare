@@ -3,10 +3,19 @@
     <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
     <h3>Add a profile!</h3>
     <form class="careProfileInputs" action="index.html" method="post">
-      <input ng-model="imageUrl" type="text" placeholder="Image url" value="">
-      <input ng-model="nameIn" type="text" placeholder="name" value=""><br><br>
-      <input ng-model="basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
-      <input ng-model="careInfoIn" type="text" placeholder="Care info" value="" size="50">
-      <button ng-click="uc.submit()" type="button" name="button" class="btn btn primary">Submit</button>
+      <input ng-model="uc.imageUrl" type="text" placeholder="Image url" value="">
+      <input ng-model="uc.nameIn" type="text" placeholder="name" value=""><br><br>
+      <input ng-model="uc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
+      <input ng-model="uc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
+      <button ng-click="uc.addProfile()" type="button" name="button" class="btn btn primary">Submit</button>
     </form>
+</div>
+<br><br><br><br>
+<div class="profileContainer container col-sm-3">
+  <div ng-repeat="prof in uc.getAllProfiles">
+    <img ng-src="{{prof.imageUrl}}" alt="">
+    <h2>{{prof.name}}</h2>
+    <p>{{prof.basicInfo}}</p>
+    <p>{{prof.careInfo}}</p>
+  </div>
 </div>

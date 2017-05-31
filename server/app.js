@@ -49,7 +49,7 @@ if(process.env.MONGODB_URI != undefined) {
     mongoURI = 'mongodb://localhost:27017/careshare';
 }
 
-// var mongoURI = "mongodb://localhost:27017/passport";
+// var mongoURI = "mongodb://localhost:27017/careshare";
 var mongoDB = mongoose.connect(mongoURI).connection;
 
 mongoDB.on('error', function(err){

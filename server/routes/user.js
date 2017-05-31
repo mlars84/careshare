@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var path = require('path');
+var mongoose = require('mongoose');
+var careProfileModel = require('../models/careprofile.model');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
@@ -25,6 +27,25 @@ router.get('/logout', function(req, res) {
   console.log('Logged out');
   req.logOut();
   res.sendStatus(200);
+});
+
+//POST to add a "Care Profile" to the database
+router.post('/addProfile', function(req, res) {
+  console.log('Adding Profile', req.body);
+  var newCareProfile = careProfileModel(req.body);
+  console.log('newCareProfile =>', newCareProfile);
+  newCareProfile.save().then(function(){
+    res.sendStatus(200);
+  });
+});
+
+//GET to get all user profiles
+router.get('/getAllProfiles', function(req, res) {
+  console.log('Get all user Profiles');
+  careProfileModel.find().then(function(data) {
+      console.log('data =>', data);
+      res.send(data);
+  });
 });
 
 
