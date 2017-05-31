@@ -1,5 +1,13 @@
 .lead {
   text-align: center;
+  background-color: khaki;
+  color: black;
+  font-size: 8vmin;
+  border-radius: 25px;
+}
+
+body {
+  background-color: khaki;
 }
 
 .instructions .container h1 {

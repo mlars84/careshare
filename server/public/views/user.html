@@ -1,7 +1,10 @@
 <div class="container">
     <h1 id="welcome" class="user">Welcome, {{uc.userName}}!</h1>
-    <p>This is the user page!</p>
     <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
-    <input ng-model="shelfItem" type="text" placeholder="Add to Shelf" value="">
+    <h3>Add a profile!</h3>
+    <input ng-model="imageUrl" type="text" placeholder="Image url" value="">
+    <input ng-model="nameIn" type="text" placeholder="name" value="">
+    <input ng-model="bioIn" type="text" placeholder="bio" value="">
+    <input ng-model="careInfoIn" type="text" placeholder="Care info" value="">
     <button ng-click="uc.submit()" type="button" name="button" class="btn btn primary">Submit</button>
 </div>
