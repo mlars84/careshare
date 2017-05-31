@@ -20,6 +20,18 @@ body {
 .profile {
   border: 1px solid black;
   margin: 3vmin 3vmin 3vmin 3vmin;
+  background-color: #99CCFF;
+}
+
+.profImg {
+  margin: 2vmin 2vmin 2vmin 2vmin;
+  border: 1px solid #F0E68C;
+  border-radius: 15px;
+}
+
+.profileText {
+  margin: 1vmin 1vmin 1vmin 1vmin;
+  text-align: center;
 }
 
 .deleteBtn {

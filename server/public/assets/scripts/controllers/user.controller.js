@@ -46,6 +46,11 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
     vm.getAllProfiles();
   }; //end addProfile
 
+  //function to clear the inputs after submit button is clicked
+  vm.clearInputs = function() {
+
+  }; //end clearInputs
+
   vm.getAllProfiles = function() {
     console.log('display button clicked!');
     $http({
