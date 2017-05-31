@@ -1,23 +1,20 @@
+.jumbotron {
+  background-color: #F0E68C;
+}
+
 .lead {
   text-align: center;
-  background-color: khaki;
   color: black;
+  font-weight: 800;
   font-size: 8vmin;
   border-radius: 25px;
+  font-family: 'Sofadi One', cursive;
+  text-shadow: 1px 2px #99CCFF;
 }
 
 body {
-  background-color: khaki;
-}
-
-.instructions .container h1 {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.instructions {
-    background-color: #333333;
-    color: #DDDDDD;
+  background-color: #F0E68C;
+  font-family: 'Sofadi One', cursive;
 }
 
 #entryForm {
@@ -34,6 +31,7 @@ body {
 
 .message {
     padding: 10px 0;
+    border: 1px solid black;
 }
 
 .message p {
@@ -41,8 +39,7 @@ body {
 }
 
 .message:nth-child(odd) {
-     background-color: #eeeeee;
-}
+     background-color: #eeeeee; }
 
 .message:nth-child(even) {
     background-color: #f8f8f8;

@@ -23,7 +23,7 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
             $location.path('/user');
           } else {
             console.log('failure: ', response);
-            vm.message = "Wrong!!";
+            vm.message = "You are not registered!";
           }
         });
       }
