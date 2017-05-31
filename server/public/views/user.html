@@ -12,10 +12,11 @@
 </div>
 <br><br><br><br>
 <div class="profileContainer container col-sm-3">
-  <div ng-repeat="prof in uc.getAllProfiles">
-    <img ng-src="{{prof.imageUrl}}" alt="">
+  <div class="profile" ng-repeat="prof in uc.allProfiles">
+    <img ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <h2>{{prof.name}}</h2>
     <p>{{prof.basicInfo}}</p>
     <p>{{prof.careInfo}}</p>
+    <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn deleteBtn">Delete</button>
   </div>
 </div>

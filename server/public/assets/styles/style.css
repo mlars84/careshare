@@ -17,6 +17,15 @@ body {
   font-family: 'Sofadi One', cursive;
 }
 
+.profile {
+  border: 1px solid black;
+  margin: 3vmin 3vmin 3vmin 3vmin;
+}
+
+.deleteBtn {
+  margin: 1vmin 1vmin 1vmin 1vmin;
+}
+
 #entryForm {
     margin-top: 14px;
 }

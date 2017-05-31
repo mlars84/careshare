@@ -2,6 +2,8 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 
+  vm.allProfiles = [];
+
   console.log('checking user');
 
   // Upon load, check this user's session on the server
@@ -45,12 +47,26 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   }; //end addProfile
 
   vm.getAllProfiles = function() {
-    console.log('display buttong clicked!');
+    console.log('display button clicked!');
     $http({
       method: 'GET',
       url: '/user/getAllProfiles'
     }).then(function(res) {
       console.log(res.data);
+      vm.allProfiles = res.data;
     });
   }; //end getAllProfiles
+  vm.getAllProfiles();
+
+  vm.deleteProfile = function(id) {
+    console.log('delete button clicked', id);
+    $http({
+      method: 'DELETE',
+      url: '/user/deleteProfile',
+      params: { id: id }
+    }).then(function(res) {
+      console.log(res);
+      vm.getAllProfiles();
+    });
+  }; //end deleteProfile
 }]); //end UserController
