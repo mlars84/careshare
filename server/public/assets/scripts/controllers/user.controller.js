@@ -1,8 +1,12 @@
-myApp.controller('UserController', ['$http', '$location', function($http, $location) {
+myApp.controller('UserController', ['$scope', '$http', '$location', function($scope, $http, $location) {
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 
   vm.allProfiles = [];
+
+  $scope.nameIn ={
+    imageUrl: 'Profile Name'
+  };
 
   console.log('checking user');
 
@@ -74,7 +78,7 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   //function to add editable inputs and editProfile to user.html DOM
   vm.addEditables = function() {
     console.log('edit button clicked!');
-    
+
   }; //end addEditables
 
   //function to edit the profile after the user as added it

@@ -2,6 +2,10 @@
   background-color: #F0E68C;
 }
 
+div[ng-app] {
+  margin: 50px;
+}
+
 .lead {
   text-align: center;
   color: black;
