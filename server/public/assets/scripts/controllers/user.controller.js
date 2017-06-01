@@ -71,30 +71,27 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     }).then(function(res) {
       console.log(res.data);
       vm.allProfiles = res.data;
+      // vm.updateProfile
     });
   }; //end getAllProfiles
   vm.getAllProfiles();
 
   //function to add editable inputs and editProfile to user.html DOM
-  vm.addEditables = function() {
-    console.log('edit button clicked!');
+  // vm.addEditables = function() {
+  //   console.log('edit button clicked!');
+  //
+  // }; //end addEditables
 
-  }; //end addEditables
-
-  //function to edit the profile after the user as added it
-  vm.editProfile = function() {
-    console.log('edit button clicked!');
+  //function to update the profile after the user as added it
+  vm.updateProfile = function(profile) {
+    console.log('update button clicked!');
     //new Care Profile object that takes values from editable input fields
-    var NewProfileToSend = {
-      imageUrl: vm.newImg,
-      name: vm.newName,
-      basicInfo: vm.newBasicInfo,
-      careInfo: vm.newCareInfo,
-    };
+
+    console.log(profile);
     $http({
       method: 'PUT',
-      url: '/user/editProfile',
-      data: NewProfileToSend
+      url: '/user/updateProfile',
+      data: profile
     }).then(function(res) {
       console.log(res.data);
     });

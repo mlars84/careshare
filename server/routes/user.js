@@ -58,14 +58,14 @@ router.delete('/deleteProfile', function(req, res) {
   });
 }); //end deleteProfile
 
-router.put('/editProfile', function(req, res) {
+router.put('/updateProfile', function(req, res) {
   console.log('Edit a care profile');
   var profileToEdit = req.body;
-  console.log(profileToEdit);
+  console.log('profileToEdit =>', profileToEdit);
   careProfileModel.update(req.body).then(function() {
     res.sendStatus(200);
   });
-}); //end editProfile
+}); //end updateProfile
 
 
 module.exports = router;

@@ -24,7 +24,7 @@
       <p>{{prof.basicInfo}}</p>
       <p>{{prof.careInfo}}</p> -->
     </div>
-    <button ng-model="hideProfile" ng-click="uc.addEditables()" type="button" name="button" class="btn editBtn">Edit</button>
+    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn editBtn">Update</button>
     <button ng-click="uc.shareProfile()" type="button" name="button" class="btn shareBtn">Share</button>
     <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn deleteBtn">Delete</button>
   </div>
