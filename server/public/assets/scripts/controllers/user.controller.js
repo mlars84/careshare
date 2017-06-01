@@ -74,13 +74,7 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   //function to add editable inputs and editProfile to user.html DOM
   vm.addEditables = function() {
     console.log('edit button clicked!');
-    return {
-      template: '<input ng-model="uc.newImg" type="text" name="" value=""><br>' +
-      '<input ng-model="uc.newName" type="text" name="" value=""><br>' +
-      '<input ng-model="uc.newBasicInfo" type="text" name="" value=""><br>' +
-      '<input ng-model="uc.newCareInfo" type="text" name="" value=""><br>' +
-      '<button ng-click="uc.editProfile()" type="button" name="button" class="btn confirmBtn">Confirm</button>'
-    };
+    
   }; //end addEditables
 
   //function to edit the profile after the user as added it

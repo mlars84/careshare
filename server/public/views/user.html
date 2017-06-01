@@ -14,16 +14,18 @@
 <!-- Div to append user profiles and edit/share/delete buttons -->
 <h2 class="h2">Your Care Profiles:</h2>
 <div class="profileContainer container col-sm-3">
-  <div class="profile" ng-repeat="prof in uc.allProfiles">
+  <div ng-hide="uc.hideProfile" class="profile" ng-repeat="prof in uc.allProfiles">
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div class="profileText">
       <h2>{{prof.name}}</h2>
       <p>{{prof.basicInfo}}</p>
       <p>{{prof.careInfo}}</p>
     </div>
-    <button ng-click="uc.addEditables()" type="button" name="button" class="btn editBtn">Edit</button>
+    <button ng-model="uc.hideProfile" ng-click="uc.addEditables()" type="button" name="button" class="btn editBtn">Edit</button>
     <button ng-click="uc.shareProfile()" type="button" name="button" class="btn shareBtn">Share</button>
     <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn deleteBtn">Delete</button>
   </div>
 </div>
-<main-area></main-area>
+<!-- Div to ng-show the editable input fields that replace the profile elements -->
+<a href ng-click="goCats = !goCats">Toggle Cats</a>
+<img ng-src="http://i.imgur.com/vkW3Lhe.jpg" ng-show="goCats">
