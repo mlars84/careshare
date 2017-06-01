@@ -82,18 +82,16 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   //
   // }; //end addEditables
 
-  //function to update the profile after the user as added it
+  //function to update the profile after the user as edited it
   vm.updateProfile = function(profile) {
-    console.log('update button clicked!');
-    //new Care Profile object that takes values from editable input fields
-
-    console.log(profile);
+    console.log('update button clicked!', profile);
     $http({
       method: 'PUT',
       url: '/user/updateProfile',
       data: profile
     }).then(function(res) {
       console.log(res.data);
+      vm.getAllProfiles();
     });
   }; //end editProfile
 

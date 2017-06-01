@@ -12,19 +12,18 @@
 </div>
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
-<h2 class="h2">Your Care Profiles:</h2>
-<div class="profileContainer container col-sm-3">
+<h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save):</h4>
+<div class="profileContainer container col-lg-6">
   <div class="profile" ng-repeat="prof in uc.allProfiles">
     <img ng-hide="hideProfile" class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div ng-hide="hideProfile" class="profileText">
-      <a href="#" editable-text="prof.name">{{ prof.name || 'change name' }}</a><br>
-      <a href="#" editable-text="prof.basicInfo">{{ prof.basicInfo || 'change basicInfo' }}</a><br>
-      <a href="#" editable-text="prof.careInfo">{{ prof.careInfo || 'change careInfo' }}</a>
-      <!-- <h2>{{prof.name}}</h2>
-      <p>{{prof.basicInfo}}</p>
-      <p>{{prof.careInfo}}</p> -->
+      <ul>
+        <li><a href="#" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'change name' }}</a><br></li>
+        <li><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'change basicInfo' }}</a><br></li>
+        <li><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'change careInfo' }}</a></li>
+      </ul>
     </div>
-    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn editBtn">Update</button>
+    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn updateBtn">Update</button>
     <button ng-click="uc.shareProfile()" type="button" name="button" class="btn shareBtn">Share</button>
     <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn deleteBtn">Delete</button>
   </div>

@@ -16,7 +16,7 @@ div[ng-app] {
   text-shadow: 1px 2px #99CCFF;
 }
 
-.h2 {
+.h2, .h4 {
   margin-left: 4vmin;
   font-weight: 600;
 }
@@ -28,7 +28,8 @@ body {
 
 .profile {
   border: 1px solid black;
-  margin: 3vmin 3vmin 3vmin 3vmin;
+  margin: 3vmax 3vmax 3vmax 3vmax;
+  padding: 1vmax 1vmax 1vmax 1vmax;
   background-color: #99CCFF;
 }
 
@@ -44,12 +45,11 @@ body {
 }
 
 .profileText {
-  margin: 1vmin 1vmin 1vmin 1vmin;
-  text-align: center;
+  margin: 1vmin 1vmin 1vmin 1vmin; text-align: justify;
   text-shadow: 1px 1px #99CCFF;
 }
 
-.deleteBtn {
+.deleteBtn, .updateBtn, .shareBtn {
   margin: 1vmin 1vmin 1vmin 1vmin;
   border: 1px solid #F0E68C;
 }
