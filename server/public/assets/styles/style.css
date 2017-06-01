@@ -12,6 +12,11 @@
   text-shadow: 1px 2px #99CCFF;
 }
 
+.h2 {
+  margin-left: 4vmin;
+  font-weight: 600;
+}
+
 body {
   background-color: #F0E68C;
   font-family: 'Sofadi One', cursive;
@@ -32,10 +37,12 @@ body {
 .profileText {
   margin: 1vmin 1vmin 1vmin 1vmin;
   text-align: center;
+  text-shadow: 1px 1px #99CCFF;
 }
 
 .deleteBtn {
   margin: 1vmin 1vmin 1vmin 1vmin;
+  border: 1px solid #F0E68C;
 }
 
 #entryForm {

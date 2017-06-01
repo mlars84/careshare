@@ -63,6 +63,18 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   }; //end getAllProfiles
   vm.getAllProfiles();
 
+  //function to edit the profile after the user as added it
+  vm.editProfile = function() {
+    console.log('edit button clicked!');
+
+  }; //end editProfile
+
+  //function to share the profile with another user
+  vm.shareProfile = function() {
+    console.log('share button clicked!');
+
+  }; //end shareProfile
+
   vm.deleteProfile = function(id) {
     console.log('delete button clicked', id);
     $http({

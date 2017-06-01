@@ -6,6 +6,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
   $locationProvider.hashPrefix('');
 
   $routeProvider
+    .when('/', {
+      templateUrl: '/views/templates/header.html',
+      controller: 'LoginController as lc'
+    })
     .when('/home', {
       templateUrl: '/views/home.html',
       controller: "LoginController as lc"
@@ -19,7 +23,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: "UserController as uc"
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: '/'
     });
-
+    
 }]);
