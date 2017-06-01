@@ -37,7 +37,7 @@ router.post('/addProfile', function(req, res) {
   newCareProfile.save().then(function(){
     res.sendStatus(200);
   });
-}); //end post
+}); //end addProfile
 
 //GET to get all user profiles
 router.get('/getAllProfiles', function(req, res) {
@@ -46,7 +46,7 @@ router.get('/getAllProfiles', function(req, res) {
       console.log('data =>', data);
       res.send(data);
   });
-}); //end get
+}); //end getAllProfiles
 
 //DELETE to remove a profile
 router.delete('/deleteProfile', function(req, res) {
@@ -56,7 +56,16 @@ router.delete('/deleteProfile', function(req, res) {
   careProfileModel.remove({_id: idToDelete}).then(function() {
     res.sendStatus(204);
   });
-}); //end delete
+}); //end deleteProfile
+
+router.put('/editProfile', function(req, res) {
+  console.log('Edit a care profile');
+  var profileToEdit = req.body;
+  console.log(profileToEdit);
+  careProfileModel.update(req.body).then(function() {
+    res.sendStatus(200);
+  });
+}); //end editProfile
 
 
 module.exports = router;

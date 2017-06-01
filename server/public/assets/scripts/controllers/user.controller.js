@@ -19,6 +19,7 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
       }
   });
 
+  //Passport function to logout user
   vm.logout = function() {
     $http.get('/user/logout').then(function(response) {
       console.log('logged out');
@@ -26,8 +27,10 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
     });
   };
 
+  //function to add a profile once a user is authenticated
   vm.addProfile = function() {
     console.log('clicked submit');
+    //object to send to DB via user.js route from inputs on DOM
     var profileToSend = {
       imageUrl: vm.imageUrl,
       name: vm.nameIn,
@@ -44,13 +47,18 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
       console.log(res);
     });
     vm.getAllProfiles();
+    vm.clearInputs();
   }; //end addProfile
 
   //function to clear the inputs after submit button is clicked
   vm.clearInputs = function() {
-
+    vm.imageUrl = '';
+    vm.nameIn = '';
+    vm.basicInfoIn = '';
+    vm.careInfoIn = '';
   }; //end clearInputs
 
+  //function to get all user profiles
   vm.getAllProfiles = function() {
     console.log('display button clicked!');
     $http({
@@ -63,10 +71,28 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   }; //end getAllProfiles
   vm.getAllProfiles();
 
+  //function to add editable inputs and editProfile to user.html DOM
+  vm.addEditables = function() {
+    console.log('edit button clicked!');
+  }; //end addEditables
+
   //function to edit the profile after the user as added it
   vm.editProfile = function() {
     console.log('edit button clicked!');
-
+    //new Care Profile object that takes values from editable input fields
+    var NewProfileToSend = {
+      imageUrl: vm.newImg,
+      name: vm.newName,
+      basicInfo: vm.newBasicInfo,
+      careInfo: vm.newCareInfo,
+    };
+    $http({
+      method: 'PUT',
+      url: '/user/editProfile',
+      data: NewProfileToSend
+    }).then(function(res) {
+      console.log(res.data);
+    });
   }; //end editProfile
 
   //function to share the profile with another user

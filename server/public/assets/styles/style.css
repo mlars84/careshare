@@ -32,6 +32,11 @@ body {
   margin: 2vmin 2vmin 2vmin 2vmin;
   border: 1px solid #F0E68C;
   border-radius: 15px;
+  transition: all .2s ease-in-out;
+}
+
+.profImg:hover {
+  transform: scale(1.8);
 }
 
 .profileText {
