@@ -7,7 +7,7 @@ div[ng-app] {
 }
 
 .lead {
-  text-align: center;
+  /*text-align: center;*/
   color: black;
   font-weight: 800;
   font-size: 8vmin;
@@ -19,6 +19,7 @@ div[ng-app] {
 .h2, .h4 {
   margin-left: 4vmin;
   font-weight: 600;
+  text-shadow: 1px 1px #99CCFF;
 }
 
 body {
@@ -42,6 +43,7 @@ body {
 
 .profImg:hover {
   transform: scale(1.8);
+  margin-left: 5vmax;
 }
 
 .profileText {
@@ -49,9 +51,26 @@ body {
   text-shadow: 1px 1px #99CCFF;
 }
 
-.deleteBtn, .updateBtn, .shareBtn {
+.profileBtn {
   margin: 1vmin 1vmin 1vmin 1vmin;
   border: 1px solid #F0E68C;
+  background-color: #F0E68C;
+  color: black;
+}
+
+.profileBtn:hover {
+  background-color: black;
+  color: #F0E68C;
+}
+
+.btn-info {
+  background-color: #99CCFF;
+  color: black;
+}
+
+.btn-info:hover {
+  background-color: black;
+  color: #99CCFF;
 }
 
 #entryForm {

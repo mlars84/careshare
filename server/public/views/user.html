@@ -1,18 +1,18 @@
 <div class="container">
     <h1 id="welcome" class="user">Welcome, {{uc.userName}}!</h1>
-    <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
-    <h3>Add a profile!</h3>
+    <button class="btn btn-info" ng-click="uc.logout()">Log Out</button>
+    <h4>Add a profile of someone or something in your life that needs some care!</h4>
     <form class="careProfileInputs" action="index.html" method="post">
       <input ng-model="uc.imageUrl" type="text" placeholder="Image url" value="">
       <input ng-model="uc.nameIn" type="text" placeholder="name" value=""><br><br>
       <input ng-model="uc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
       <input ng-model="uc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
-      <button ng-click="uc.addProfile()" type="button" name="button" class="btn btn primary">Submit</button>
+      <button ng-click="uc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
     </form>
 </div>
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
-<h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save):</h4>
+<h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
 <div class="profileContainer container col-lg-6">
   <div class="profile" ng-repeat="prof in uc.allProfiles">
     <img ng-hide="hideProfile" class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
@@ -23,9 +23,9 @@
         <li><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'change careInfo' }}</a></li>
       </ul>
     </div>
-    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn updateBtn">Update</button>
-    <button ng-click="uc.shareProfile()" type="button" name="button" class="btn shareBtn">Share</button>
-    <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn deleteBtn">Delete</button>
+    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
+    <button ng-click="uc.shareProfile()" type="button" name="button" class="btn btn-default profileBtn">Share</button>
+    <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
   </div>
 </div>
 <!-- Div to ng-show the editable input fields that replace the profile elements -->

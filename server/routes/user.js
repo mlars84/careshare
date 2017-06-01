@@ -34,8 +34,13 @@ router.post('/addProfile', function(req, res) {
   console.log('Adding Profile', req.body);
   var newCareProfile = careProfileModel(req.body);
   console.log('newCareProfile =>', newCareProfile);
-  newCareProfile.save().then(function(){
-    res.sendStatus(200);
+  newCareProfile.save().then(function(err){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
   });
 }); //end addProfile
 
@@ -43,8 +48,8 @@ router.post('/addProfile', function(req, res) {
 router.get('/getAllProfiles', function(req, res) {
   console.log('Get all user Profiles');
   careProfileModel.find().then(function(data) {
-      console.log('data =>', data);
-      res.send(data);
+    console.log('data =>', data);
+    res.send(data);
   });
 }); //end getAllProfiles
 
@@ -59,11 +64,28 @@ router.delete('/deleteProfile', function(req, res) {
 }); //end deleteProfile
 
 router.put('/updateProfile', function(req, res) {
-  console.log('Edit a care profile');
-  var profileToEdit = req.body;
-  console.log('profileToEdit =>', profileToEdit);
-  careProfileModel.update(req.body).then(function() {
-    res.sendStatus(200);
+  // console.log('Edit a care profile');
+  // // var profileToEdit = req.body;
+  // var newCareProfile = careProfileModel(req.body);
+  // console.log('newCareProfile =>', newCareProfile);
+  // newCareProfile.findByIdAndUpdate(req.body.id, { $set: req.body }, function(err) {
+  //   if(err){
+  //     res.sendStatus(500);
+  //   }else{
+  //     res.sendStatus(200);
+  //   }
+  // });
+
+  console.log('Adding Profile', req.body);
+  var newCareProfile = careProfileModel(req.body);
+  console.log('newCareProfile =>', newCareProfile);
+  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name}}, function(err){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
   });
 }); //end updateProfile
 
