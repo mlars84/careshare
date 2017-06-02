@@ -1,6 +1,6 @@
-**CareShare**
-
-Info here:
+CareShare
+---
+App description here:
 
 Technologies used:
 ---

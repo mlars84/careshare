@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Express / Passport</title>
+        <title>CareShare</title>
         <link rel="stylesheet" href="/vendors/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Sofadi+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bungee+Outline|Coiny" rel="stylesheet">
         <link rel="stylesheet" href="vendors/xeditable.css.css">
         <link rel="stylesheet" href="/assets/styles/style.css">
-
         <script type="text/javascript" src="/vendors/angular.min.js"></script>
         <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
         <script src="vendors/xeditable.min.js" charset="utf-8"></script>
+        <!-- <script src="https://static.filestackapi.com/v3/filestack-0.6.3.js"></script>
+        <script type="text/javascript">
+          var client = filestack.init('yourApiKey', { policy: 'policy', signature: 'signature' });
+          client.storeURL('url', storeOptions);
+        </script> -->
         <script type="text/javascript" src="/assets/scripts/clientapp.js"></script>
         <script type="text/javascript" src="/assets/scripts/controllers/login.controller.js"></script>
         <script type="text/javascript" src="/assets/scripts/controllers/user.controller.js"></script>
@@ -27,7 +31,8 @@
           function showPicker() {
               client.pick({
               }).then(function(result) {
-                  console.log(JSON.stringify(result.filesUploaded))
+                  console.log(JSON.stringify(result.filesUploaded[0].url))
+                  var pic = JSON.stringify(result.filesUploaded[0].url)
               });
           }
       </script>

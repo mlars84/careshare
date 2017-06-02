@@ -3,6 +3,17 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   var vm = this;
 
   vm.allProfiles = [];
+  vm.pix = [];
+
+  // function to use filestack to add image url to DB
+  vm.showPicker = function() {
+    var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
+    client.pick({}).then(function(result) {
+      console.log('returned URL: ', result.filesUploaded[0].url);
+      vm.pix.push({url: result.filesUploaded[0].url});
+      console.log(vm.pix);
+    });
+  }; //end showPicker
 
   $scope.nameIn ={
     imageUrl: 'Profile Name'
@@ -36,7 +47,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     console.log('clicked submit');
     //object to send to DB via user.js route from inputs on DOM
     var profileToSend = {
-      imageUrl: vm.imageUrl,
+      imageUrl: pic,
       name: vm.nameIn,
       basicInfo: vm.basicInfoIn,
       careInfo: vm.careInfoIn,

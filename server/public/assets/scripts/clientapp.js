@@ -4,10 +4,11 @@ var myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
   $locationProvider.hashPrefix('');
+  // $locationProvider.html5Mode(true);
 
   $routeProvider
     .when('/', {
-      templateUrl: '/views/templates/header.html',
+      templateUrl: 'views/templates/navigation.html',
       controller: 'LoginController as lc'
     })
     .when('/home', {
@@ -23,7 +24,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: "UserController as uc"
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: 'home'
     });
 
 myApp.run(function(editableOptions) {

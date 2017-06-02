@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 // Mongoose Schema
 var CareProfileSchema = new Schema({
     imageUrl: {type: String, required: true},
