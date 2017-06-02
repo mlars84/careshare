@@ -24,6 +24,11 @@ a:hover {
   color: khaki;
 }
 
+p {
+  color: red;
+  margin-left: 5rem;
+}
+
 .lead {
   /*text-align: center;*/
   color: red;

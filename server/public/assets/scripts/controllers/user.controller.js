@@ -3,6 +3,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   var vm = this;
 
   vm.userProfiles = [];
+  vm.users = [];
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
@@ -124,4 +125,24 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       vm.getUserProfiles();
     });
   }; //end deleteProfile
+
+  //function to get
+  vm.getUsers = function() {
+    console.log('connect button clicked!');
+    $http({
+      method: 'GET',
+      url: '/user/getUsers'
+    }).then(function(res) {
+      console.log(res.data);
+      vm.users = [];
+      for (var i = 0; i < res.data.length; i++) {
+        console.log(res.data[i].username, vm.username);
+        if (res.data[i].username === vm.username) {
+
+        }
+        vm.users.push(res.data[i]);
+        console.log(vm.users);
+    }
+    });
+  }; //end getUsers
 }]); //end UserController

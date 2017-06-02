@@ -10,6 +10,13 @@
       <button ng-click="uc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
     </form>
 </div>
+<!-- Div to append list of other users -->
+<div class="userList">
+  <h2>List of current CareShare users:</h2>
+  <button ng-click="uc.getUsers()" type="button" name="button" class="btn btn-info">Connect</button>
+    <div class="container" ng-repeat="user in uc.users"><br>
+      <p>Users - {{user.username}}</p>
+    </div>
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
 <h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
@@ -28,4 +35,3 @@
     <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
   </div>
 </div>
-<!-- Div to ng-show the editable input fields that replace the profile elements -->
