@@ -3,8 +3,7 @@
     <button class="btn btn-info" ng-click="uc.logout()">Log Out</button>
     <h4>Add a profile of someone or something in your life that needs some care!</h4>
     <form class="careProfileInputs" action="index.html" method="post">
-      <!-- <input ng-model="uc.imageUrl" type="text" placeholder="Image url" value=""> -->
-      <input type="button" value="Upload Image" ng-click="uc.showPicker(pic)" />
+      <input type="button" value="Upload Image" ng-click="uc.showPicker(pic)" class="btn btn-info"/>
       <input ng-model="uc.nameIn" type="text" placeholder="name" value=""><br><br>
       <input ng-model="uc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
       <input ng-model="uc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
@@ -15,9 +14,9 @@
 <!-- Div to append user profiles and edit/share/delete buttons -->
 <h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
 <div class="profileContainer container col-lg-6">
-  <div class="profile" ng-repeat="prof in uc.allProfiles">
-    <img ng-hide="hideProfile" class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
-    <div ng-hide="hideProfile" class="profileText">
+  <div class="profile" ng-repeat="prof in uc.userProfiles">
+    <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
+    <div class="profileText">
       <ul>
         <h3>NAME: </h3><ul><a href="#" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
         <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>

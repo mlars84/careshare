@@ -44,14 +44,14 @@ router.post('/addProfile', function(req, res) {
   });
 }); //end addProfile
 
-//GET to get all user profiles
-router.get('/getAllProfiles', function(req, res) {
-  console.log('Get all user Profiles');
+//GET to get specific user profiles
+router.get('/getUserProfiles', function(req, res) {
+  console.log('Get specific user Profiles');
   careProfileModel.find().then(function(data) {
     console.log('data =>', data);
     res.send(data);
   });
-}); //end getAllProfiles
+}); //end getUserProfiles
 
 //DELETE to remove a profile
 router.delete('/deleteProfile', function(req, res) {

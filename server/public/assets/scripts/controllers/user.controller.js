@@ -2,7 +2,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 
-  vm.allProfiles = [];
+  vm.userProfiles = [];
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
@@ -28,19 +28,20 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
           vm.userName = response.data.username;
           vm.userId = response.data._id;
           console.log('User Data: ', vm.userName, vm.userId);
+          vm.getUserProfiles();
       } else {
           // user has no session, bounce them back to the login page
           $location.path("/home");
       }
-  });
+  }); //end user session check
 
   //Passport function to logout user
   vm.logout = function() {
     $http.get('/user/logout').then(function(response) {
       console.log('logged out');
-      $location.path("/home");
+      $location.path("/");
     });
-  };
+  }; //end logout
 
   //function to add a profile once a user is authenticated
   vm.addProfile = function() {
@@ -61,8 +62,9 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     }).then(function(res) {
       console.log(res.data);
     });
-    vm.getAllProfiles();
+    
     vm.clearInputs();
+    vm.getUserProfiles();
   }; //end addProfile
 
   //function to clear the inputs after submit button is clicked
@@ -73,25 +75,23 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     vm.careInfoIn = '';
   }; //end clearInputs
 
-  //function to get all user profiles
-  vm.getAllProfiles = function() {
-    console.log('display button clicked!');
+  //function to get specific user profiles
+  vm.getUserProfiles = function() {
+    console.log('getting users profiles based on their mongo _id in the profiles they created');
     $http({
       method: 'GET',
-      url: '/user/getAllProfiles'
+      url: '/user/getUserProfiles'
     }).then(function(res) {
-      console.log(res.data);
-      vm.allProfiles = res.data;
-      // vm.updateProfile
+      console.log('res.data =>', res.data, 'res.data.user =>', res.data.user, 'vm.userId =>', vm.userId);
+      for (var i = 0; i < res.data.length; i++) {
+        console.log(res.data[i].user);
+        if(res.data[i].user === vm.userId){
+          vm.userProfiles.push(res.data[i]);
+          console.log(vm.userProfiles);
+        }
+      }
     });
-  }; //end getAllProfiles
-  vm.getAllProfiles();
-
-  //function to add editable inputs and editProfile to user.html DOM
-  // vm.addEditables = function() {
-  //   console.log('edit button clicked!');
-  //
-  // }; //end addEditables
+  }; //end getUserProfiles
 
   //function to update the profile after the user as edited it
   vm.updateProfile = function(profile) {
@@ -102,7 +102,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       data: profile
     }).then(function(res) {
       console.log(res.data);
-      vm.getAllProfiles();
+      vm.getUserProfiles();
     });
   }; //end editProfile
 
@@ -120,7 +120,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       params: { id: id }
     }).then(function(res) {
       console.log(res);
-      vm.getAllProfiles();
+      vm.getUserProfiles();
     });
   }; //end deleteProfile
 }]); //end UserController
