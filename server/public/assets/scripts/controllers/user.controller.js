@@ -126,7 +126,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     });
   }; //end deleteProfile
 
-  //function to get
+  //function to get list of authenticated users from DB
   vm.getUsers = function() {
     console.log('connect button clicked!');
     $http({
@@ -136,13 +136,13 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       console.log(res.data);
       vm.users = [];
       for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data[i].username, vm.username);
-        if (res.data[i].username === vm.username) {
+        console.log(res.data[i].username, vm.userName);
+        if (res.data[i].username === vm.userName) {
+          vm.users.push(res.data[i]);
+          console.log(vm.users);
+        } //end if
 
-        }
-        vm.users.push(res.data[i]);
-        console.log(vm.users);
-    }
+    } //end for
     });
   }; //end getUsers
 }]); //end UserController
