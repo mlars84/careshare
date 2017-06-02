@@ -31,8 +31,9 @@
           function showPicker() {
               client.pick({
               }).then(function(result) {
-                  console.log(JSON.stringify(result.filesUploaded[0].url))
+                  // console.log(JSON.stringify(result.filesUploaded[0].url))
                   var pic = JSON.stringify(result.filesUploaded[0].url)
+                  console.log(pic);
               });
           }
       </script>
