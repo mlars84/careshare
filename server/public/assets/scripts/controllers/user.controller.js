@@ -62,7 +62,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     }).then(function(res) {
       console.log(res.data);
     });
-    
+
     vm.clearInputs();
     vm.getUserProfiles();
   }; //end addProfile
@@ -83,6 +83,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       url: '/user/getUserProfiles'
     }).then(function(res) {
       console.log('res.data =>', res.data, 'res.data.user =>', res.data.user, 'vm.userId =>', vm.userId);
+      vm.userProfiles = [];
       for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].user);
         if(res.data[i].user === vm.userId){
