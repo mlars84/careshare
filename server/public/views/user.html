@@ -3,7 +3,8 @@
     <button class="btn btn-info" ng-click="uc.logout()">Log Out</button>
     <h4>Add a profile of someone or something in your life that needs some care!</h4>
     <form class="careProfileInputs" action="index.html" method="post">
-      <input ng-model="uc.imageUrl" type="text" placeholder="Image url" value="">
+      <!-- <input ng-model="uc.imageUrl" type="text" placeholder="Image url" value=""> -->
+      <input type="button" value="Upload Image" onclick="showPicker()" />
       <input ng-model="uc.nameIn" type="text" placeholder="name" value=""><br><br>
       <input ng-model="uc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
       <input ng-model="uc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
