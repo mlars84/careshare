@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
   $locationProvider.hashPrefix('');
-  // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
 
   $routeProvider
     .when('/', {
