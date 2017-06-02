@@ -58,23 +58,17 @@ router.delete('/deleteProfile', function(req, res) {
   console.log('Delete a care profile');
   var idToDelete = req.query.id;
   console.log('idToDelete =>', idToDelete);
-  careProfileModel.remove({_id: idToDelete}).then(function() {
-    res.sendStatus(204);
+  careProfileModel.remove({_id: idToDelete}).then(function(err) {
+    if (err){
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    }
+
   });
 }); //end deleteProfile
 
 router.put('/updateProfile', function(req, res) {
-  // console.log('Edit a care profile');
-  // // var profileToEdit = req.body;
-  // var newCareProfile = careProfileModel(req.body);
-  // console.log('newCareProfile =>', newCareProfile);
-  // newCareProfile.findByIdAndUpdate(req.body.id, { $set: req.body }, function(err) {
-  //   if(err){
-  //     res.sendStatus(500);
-  //   }else{
-  //     res.sendStatus(200);
-  //   }
-  // });
 
   console.log('Updating Profile', req.body);
   var newCareProfile = careProfileModel(req.body);

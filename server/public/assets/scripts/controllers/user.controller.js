@@ -10,7 +10,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     client.pick({}).then(function(result) {
       console.log('returned URL: ', result.filesUploaded[0].url);
       vm.pix = {url: result.filesUploaded[0].url};
-      console.log(vm.pix);
+      console.log(vm.pix.url);
     });
   }; //end showPicker
 
@@ -59,7 +59,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       url: '/user/addProfile',
       data: profileToSend
     }).then(function(res) {
-      console.log(res);
+      console.log(res.data);
     });
     vm.getAllProfiles();
     vm.clearInputs();

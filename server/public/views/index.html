@@ -10,11 +10,7 @@
         <script type="text/javascript" src="/vendors/angular.min.js"></script>
         <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
         <script src="vendors/xeditable.min.js" charset="utf-8"></script>
-        <!-- <script src="https://static.filestackapi.com/v3/filestack-0.6.3.js"></script>
-        <script type="text/javascript">
-          var client = filestack.init('yourApiKey', { policy: 'policy', signature: 'signature' });
-          client.storeURL('url', storeOptions);
-        </script> -->
+        <script src="https://static.filestackapi.com/v3/filestack-0.6.3.js"></script>
         <script type="text/javascript" src="/assets/scripts/clientapp.js"></script>
         <script type="text/javascript" src="/assets/scripts/controllers/login.controller.js"></script>
         <script type="text/javascript" src="/assets/scripts/controllers/user.controller.js"></script>
@@ -25,17 +21,5 @@
       <header ng-include="'/views/templates/header.html'"></header>
 
       <main ng-view></main>
-      <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
-      <script>
-          var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
-          function showPicker() {
-              client.pick({
-              }).then(function(result) {
-                  // console.log(JSON.stringify(result.filesUploaded[0].url))
-                  var pic = JSON.stringify(result.filesUploaded[0].url)
-                  console.log(pic);
-              });
-          }
-      </script>
     </body>
 </html>
