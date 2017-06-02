@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
-  $locationProvider.hashPrefix('');
+  // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
 
   $routeProvider
@@ -19,12 +19,12 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/register.html',
       controller: "LoginController as lc"
     })
-    .when('/user', {
-      templateUrl: '/views/user.html',
+    .when('/profile', {
+      templateUrl: '/views/profile.html',
       controller: "UserController as uc"
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: '/home'
     });
 
 myApp.run(function(editableOptions) {

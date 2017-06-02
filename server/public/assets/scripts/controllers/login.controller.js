@@ -10,7 +10,7 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
 
     vm.login = function() {
       console.log('here', vm.user);
-      if(vm.user.username == '' || vm.user.password == '') {
+      if(vm.user.username === '' || vm.user.password === '') {
         vm.message = "Enter your username and password!";
       } else {
         console.log('sending to server...', vm.user);
@@ -19,8 +19,8 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
           if(response.data.username) {
             console.log('success: ', response.data);
             // location works with SPA (ng-route)
-            console.log('redirecting to user page');
-            $location.path('/user');
+            console.log('redirecting to profile page');
+            $location.path('/profile');
           } else {
             console.log('failure: ', response);
             vm.message = "You are not registered!";
@@ -30,17 +30,19 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
     };
 
     vm.registerUser = function() {
-      if(vm.user.username == '' || vm.user.password == '') {
+      console.log('registerUser function');
+      if(vm.user.username === '' || vm.user.password === '') {
         vm.message = "Choose a username and password!";
+        console.log(vm.message);
       } else {
         console.log('sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
-          console.log('success', response);
+          console.log('success', response.data);
           $location.path('/home');
         },
         function(response) {
           console.log('error');
-          vm.message = "Please try again."
+          vm.message = "Please try again.";
         });
       }
     };
