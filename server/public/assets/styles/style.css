@@ -6,32 +6,45 @@ div[ng-app] {
   margin: 50px;
 }
 
+a{
+  color: black;
+  font-weight: 400;
+}
+
+a:hover {
+  color: khaki;
+}
+
 .lead {
   /*text-align: center;*/
   color: black;
   font-weight: 800;
   font-size: 8vmin;
   border-radius: 25px;
-  font-family: 'Sofadi One', cursive;
-  text-shadow: 1px 2px #99CCFF;
+  /*font-family: 'Sofadi One', cursive;*/
+  font-family: 'Bungee Outline', cursive;
+  font-family: 'Coiny', cursive;
+  text-shadow: 1px 3px white;
 }
 
 .h2, .h4 {
   margin-left: 4vmin;
   font-weight: 600;
-  text-shadow: 1px 1px #99CCFF;
+  /*text-shadow: 1px 1px white;*/
 }
 
 body {
   background-color: #F0E68C;
-  font-family: 'Sofadi One', cursive;
+  /*font-family: 'Sofadi One', cursive;*/
+  font-family: 'Bungee Outline', cursive;
+  font-family: 'Coiny', cursive;
 }
 
 .profile {
   border: 1px solid black;
   margin: 3vmax 3vmax 3vmax 3vmax;
   padding: 1vmax 1vmax 1vmax 1vmax;
-  background-color: #99CCFF;
+  background-color: #587498;
 }
 
 .profImg {
@@ -48,7 +61,7 @@ body {
 
 .profileText {
   margin: 1vmin 1vmin 1vmin 1vmin; text-align: justify;
-  text-shadow: 1px 1px #99CCFF;
+  /*text-shadow: 1px 1px white;*/
 }
 
 .profileBtn {
@@ -64,13 +77,13 @@ body {
 }
 
 .btn-info {
-  background-color: #99CCFF;
+  background-color: #587498;
   color: black;
 }
 
 .btn-info:hover {
   background-color: black;
-  color: #99CCFF;
+  color: #587498;
 }
 
 #entryForm {
