@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+myApp.controller('UserController', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 

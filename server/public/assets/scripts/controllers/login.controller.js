@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', function($http, $location) {
+myApp.controller('LoginController', ['$http', '$location', 'loginService', function($http, $location, loginService) {
   console.log('LoginController loaded');
     var vm = this;
 
