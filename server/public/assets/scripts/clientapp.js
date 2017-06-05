@@ -21,7 +21,11 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/profile', {
       templateUrl: '/views/profile.html',
-      controller: "UserController as uc"
+      controller: "profileController as pc"
+    })
+    .when('/careshare', {
+      templateUrl: '/views.careshare.html',
+      controller: 'CareShareController as csc'
     })
     .otherwise({
       redirectTo: '/home'

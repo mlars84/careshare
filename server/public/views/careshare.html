@@ -1,0 +1,9 @@
+<!-- Div to append list of other users -->
+<div class="userList">
+  <h2>List of current CareShare users:</h2>
+  <button ng-click="csc.getUsers()" type="button" name="button" class="btn btn-info">Connect with other CareSharers!</button>
+    <div class="container" ng-repeat="user in uc.users"><br>
+      <!-- Link for user to click on other users and eventually be able to share their care profiles with them -->
+      <a href="/share">{{user.username}}</a>
+    </div>
+</div>

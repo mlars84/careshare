@@ -1,9 +1,9 @@
-myApp.controller('UserController', ['$scope', '$http', '$location', 'userService', function($scope, $http, $location, userService) {
+myApp.controller('profileController', ['$scope', '$http', '$location', 'profileService', function($scope, $http, $location, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 
   vm.userProfiles = [];
-  vm.users = [];
+
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
@@ -111,6 +111,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'userService
   //function to share the profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
+    $location.path('/careshare');
 
   }; //end shareProfile
 
@@ -125,23 +126,4 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'userService
       vm.getUserProfiles();
     });
   }; //end deleteProfile
-
-  //function to get list of authenticated users from DB
-  vm.getUsers = function() {
-    console.log('connect button clicked!');
-    $http({
-      method: 'GET',
-      url: '/user/getUsers'
-    }).then(function(res) {
-      console.log(res.data);
-      vm.users = [];
-      for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data[i].username, vm.userName);
-        if (res.data[i].username !== vm.userName) {
-          vm.users.push(res.data[i]);
-          console.log(vm.users);
-        } //end if
-      } //end for
-    });
-  }; //end getUsers
-}]); //end UserController
+}]); //end profileController
