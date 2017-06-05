@@ -40,7 +40,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'userService
   vm.logout = function() {
     $http.get('/user/logout').then(function(response) {
       console.log('logged out');
-      $location.path("/");
+      $location.path("/home");
     });
   }; //end logout
 
@@ -137,12 +137,11 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'userService
       vm.users = [];
       for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].username, vm.userName);
-        if (res.data[i].username === vm.userName) {
+        if (res.data[i].username !== vm.userName) {
           vm.users.push(res.data[i]);
           console.log(vm.users);
         } //end if
-
-    } //end for
+      } //end for
     });
   }; //end getUsers
 }]); //end UserController
