@@ -33,4 +33,5 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       } //end for
     });
   }; //end getUsers
+
 }]);
