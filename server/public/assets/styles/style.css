@@ -4,11 +4,13 @@
 }
 
 .aHome:hover {
-  color: E9E3B4;
+  color: #E9E3B4;
 }
 
 .jumbotron {
-  background-color: #AABD8C;
+  background-color: #E9E3B4;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 div[ng-app] {
@@ -37,13 +39,13 @@ p {
   border-radius: 25px;
   /*font-family: 'Sofadi One', cursive;*/
   font-family: 'Patrick Hand SC', cursive;
-  text-shadow: 1px 3px E9E3B4;
+  /*text-shadow: 1px 3px #E9E3B4;*/
 }
 
 .h2, .h4 {
   margin-left: 4vmin;
   font-weight: 600;
-  /*text-shadow: 1px 1px E9E3B4;*/
+  /*text-shadow: 1px 1px #E9E3B4;*/
 }
 
 body {
@@ -77,7 +79,7 @@ body {
 
 .profileText {
   margin: 1vmin 1vmin 1vmin 1vmin; text-align: justify;
-  /*text-shadow: 1px 1px E9E3B4;*/
+  /*text-shadow: 1px 1px #E9E3B4;*/
 }
 
 .profileBtn {

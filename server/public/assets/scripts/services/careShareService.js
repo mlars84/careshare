@@ -1,6 +1,6 @@
 myApp.service('careShareService', ['$http', '$location', function($http, $location) {
   var vm = this;
-  vm.users = [];
+  vm.users = {list: []};
 
   // Upon load, check this user's session on the server
   $http.get('/user').then(function(response) {
@@ -23,11 +23,11 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       url: '/careshare/getUsers'
     }).then(function(res) {
       console.log(res.data);
-      vm.users = [];
+      vm.users.list = [];
       for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].username, vm.userName);
         if (res.data[i].username !== vm.userName) {
-          vm.users.push(res.data[i]);
+          vm.users.list.push(res.data[i]);
           console.log(vm.users);
         } //end if
       } //end for
