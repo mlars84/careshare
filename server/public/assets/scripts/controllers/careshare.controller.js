@@ -10,4 +10,10 @@ myApp.controller('CareShareController', ['careShareService', function(careShareS
 
   self.getUsers = careShareService.getUsers;
 
+  self.returnToProfile = careShareService.returnToProfile;
+
+  self.clearDiv = careShareService.clearDiv;
+
+  self.shareProfile = careShareService.shareProfile;
+
 }]);

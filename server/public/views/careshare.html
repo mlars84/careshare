@@ -2,8 +2,9 @@
 <div>
   <h2>List of current CareShare users:</h2>
   <button ng-click="csc.getUsers()" type="button" name="button" class="btn btn-info">Connect with other CareSharers!</button>
-    <div class="container" ng-repeat="user in csc.users.list"><br>
-      <h2><a href="#">{{user.username}}</a></h2>
-
+    <div class="container col-med-6" ng-repeat="user in csc.users.list"><br>
+      <h2></h2>
+      <button ng-click="csc.shareProfile()" type="button" name="button" class="btn btn-info">Share {{prof.name}} with {{user.username}}</button>
     </div>
+    <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>
 </div>

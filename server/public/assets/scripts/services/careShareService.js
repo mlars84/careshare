@@ -2,6 +2,12 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   var vm = this;
   vm.users = {list: []};
 
+  //function to clear careshare userlist div
+  // vm.clearDiv = function() {
+  //   console.log('clearDiv');
+  //   vm.users.list = [];
+  // }; //end clearDiv
+
   // Upon load, check this user's session on the server
   $http.get('/user').then(function(response) {
       if(response.data.username) {
@@ -28,10 +34,21 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
         console.log(res.data[i].username, vm.userName);
         if (res.data[i].username !== vm.userName) {
           vm.users.list.push(res.data[i]);
-          console.log(vm.users);
+          console.log(vm.users.list);
         } //end if
       } //end for
     });
   }; //end getUsers
+
+  //function to return to profile
+  vm.returnToProfile = function() {
+    console.log('back to profile button clicked!');
+    $location.path('/profile');
+  }; // end returnToProfile
+
+  //function to share a profile with another user
+  vm.shareProfile = function() {
+    console.log('share button clicked!');
+  }; // end shareProfile
 
 }]);
