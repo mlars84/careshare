@@ -54,6 +54,10 @@ body {
   font-family: 'Coiny', cursive;
 }
 
+.userList {
+  color: black;
+}
+
 .profile {
   border: 1px solid black;
   margin: 3vmax 3vmax 3vmax 3vmax;

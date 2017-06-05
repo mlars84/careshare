@@ -24,7 +24,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: "profileController as pc"
     })
     .when('/careshare', {
-      templateUrl: '/views.careshare.html',
+      templateUrl: '/views/careshare.html',
       controller: 'CareShareController as csc'
     })
     .otherwise({
