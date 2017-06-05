@@ -9,7 +9,8 @@ var userModel = require('../models/user.model');
 //GET to get user list from DB to profile.html
 router.get('/getUsers', function(req, res) {
   console.log('Getting list of users from DB');
-  userModel.find().then(function(data) {
+  console.log('req.user', req.user);
+  userModel.find({ username: { $ne: req.user.username }}).then(function(data) {
     console.log('user data =>', data);
     res.send(data);
   });

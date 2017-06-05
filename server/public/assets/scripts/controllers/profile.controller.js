@@ -112,7 +112,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.shareProfile = function() {
     console.log('share button clicked!');
     $location.path('/careshare');
-
   }; //end shareProfile
 
   vm.deleteProfile = function(id) {

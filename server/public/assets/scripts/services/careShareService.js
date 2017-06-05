@@ -30,6 +30,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     }).then(function(res) {
       console.log(res.data);
       vm.users.list = [];
+      console.log(vm.users.list);
       for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].username, vm.userName);
         if (res.data[i].username !== vm.userName) {
