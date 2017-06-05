@@ -51,6 +51,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     var profileToSend = {
       imageUrl: vm.pix.url,
       name: vm.nameIn,
+      age: vm.ageIn,
       basicInfo: vm.basicInfoIn,
       careInfo: vm.careInfoIn,
       user: vm.userId
@@ -72,6 +73,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.clearInputs = function() {
     vm.imageUrl = '';
     vm.nameIn = '';
+    vm.ageIn = '';
     vm.basicInfoIn = '';
     vm.careInfoIn = '';
   }; //end clearInputs

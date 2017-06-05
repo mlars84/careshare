@@ -5,6 +5,7 @@
     <form class="careProfileInputs" action="index.html" method="post">
       <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
       <input ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
+      <input ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
       <input ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
       <input ng-model="pc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
       <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
@@ -19,6 +20,7 @@
     <div class="profileText">
       <ul>
         <h3>NAME: </h3><ul><a href="#" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
+        <h4>Age: </h4><ul><a href="#" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
         <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
         <h4>Care Info: </h4><ul><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update care info!' }}</a></ul>
       </ul>
