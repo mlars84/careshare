@@ -20,7 +20,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   //function to get list of authenticated users from DB
   vm.getUsers = function() {
     vm.checkUserSession();
-    console.log('connect button clicked!');
+    console.log('getting all other users list');
     $http({
       method: 'GET',
       url: '/careshare/getUsers'

@@ -1,11 +1,12 @@
 <!-- Div to append list of other users -->
-<div>
+<div ng-init="csc.getUsers()">
   <h2>List of current CareShare users:</h2>
-  <button ng-click="csc.getUsers()" type="button" name="button" class="btn btn-info">Connect with other CareSharers!</button>
-    <div class="container col-med-6" ng-repeat="user in csc.users.list"><br>
-      <h2></h2>
-      <button ng-click="csc.shareProfile()" type="button" name="button" class="btn btn-info">Share {{prof.name}} with {{user.username}}</button>
-    </div>
+    <!-- <div class="container" ng-repeat="user in csc.users.list"><br>
+      <button ng-click="csc.shareProfile()" type="button" name="button" class="btn btn-info">Share with {{user.username}}</button>
+    </div> -->
+    {{csc.selectedUser}}
+    <select ng-model="csc.selectedUser" ng-options="user._id as user.username for user in csc.users.list">
+    </select>
     <br><br>
     <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>
 </div>
