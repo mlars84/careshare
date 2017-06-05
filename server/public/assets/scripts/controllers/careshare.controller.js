@@ -12,7 +12,7 @@ myApp.controller('CareShareController', ['careShareService', function(careShareS
 
   self.returnToProfile = careShareService.returnToProfile;
 
-  self.clearDiv = careShareService.clearDiv;
+  self.clearUsers = careShareService.clearUsers;
 
   self.shareProfile = careShareService.shareProfile;
 
