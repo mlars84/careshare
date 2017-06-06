@@ -37,8 +37,8 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //Passport function to logout user
   vm.logout = function() {
-    $http.get('/user/logout').then(function(response) {
-      console.log('logged out');
+    $http.get('/user/logout').then(function(res) {
+      console.log('logged out', res);
       $location.path("/home");
     });
   }; //end logout
@@ -62,7 +62,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       url: '/user/addProfile',
       data: profileToSend
     }).then(function(res) {
-      console.log(res.data);
+      console.log('back from server with =>', res.data);
     });
 
     vm.clearInputs();
@@ -105,7 +105,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       url: '/user/updateProfile',
       data: profile
     }).then(function(res) {
-      console.log(res.data);
+      console.log('back from server with =>', res.data);
       vm.getUserProfiles();
     });
   }; //end editProfile
@@ -123,7 +123,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       url: '/user/deleteProfile',
       params: { id: id }
     }).then(function(res) {
-      console.log(res);
+      console.log('back from server with =>', res);
       vm.getUserProfiles();
     });
   }; //end deleteProfile

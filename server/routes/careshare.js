@@ -16,12 +16,12 @@ router.get('/getUsers', function(req, res) {
   });
 }); //end getUsers route
 
-// route.get('/getProfilesToShare', function(req, res) {
-//   console.log('getProfilesToShare from DB');
-//   careProfileModel.find({name: {$ne: req.careprofile.name}}).then(function(data) {
-//     console.log('data', data);
-//     res.send(data);
-//   });
-// }); //end getProfilesToShare route
+router.get('/getProfilesToShare', function(req, res) {
+  console.log('getProfilesToShare from DB');
+  careProfileModel.find({name: {$ne: req.body.name}}).then(function(data) {
+    console.log('careprofile data =>', data);
+    res.send(data);
+  });
+}); //end getProfilesToShare route
 
 module.exports = router;

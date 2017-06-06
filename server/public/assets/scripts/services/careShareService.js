@@ -46,7 +46,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       method: 'GET',
       url: '/careshare/getProfilesToShare'
     }).then(function(res) {
-      console.log(res.data);
+      console.log('res.data =>', res.data);
     }); //end http GET
   }; //end getProfilesToShare
 

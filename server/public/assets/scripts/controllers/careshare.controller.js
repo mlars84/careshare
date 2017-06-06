@@ -17,5 +17,6 @@ myApp.controller('CareShareController', ['careShareService', function(careShareS
   self.shareProfile = careShareService.shareProfile;
 
   self.getProfilesToShare = careShareService.getProfilesToShare;
+  self.profiles = careShareService.profiles;
 
 }]);

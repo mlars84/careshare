@@ -86,13 +86,12 @@ router.put('/updateProfile', function(req, res) {
   console.log('Updating Profile', req.body);
   var newCareProfile = careProfileModel(req.body);
   console.log('newCareProfile =>', newCareProfile);
-  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(data, err){
-    if (data) {
-      console.log('data', data);
-      res.sendStatus(200);
-    } else {
+  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(err){
+    if (err) {
       console.log('err', err);
       res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
     }
   });
 }); //end updateProfile
