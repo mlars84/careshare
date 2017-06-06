@@ -53,6 +53,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   //function to share a profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
+
   }; // end shareProfile
 
 }]);

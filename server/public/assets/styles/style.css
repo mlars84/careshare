@@ -8,6 +8,7 @@
 }
 
 .jumbotron {
+  text-align: center;
   background-color: #E9E3B4;
   padding-top: 0;
   padding-bottom: 0;
@@ -19,6 +20,7 @@ div[ng-app] {
 }
 
 a{
+  text-align: center;
   color: #E9E3B4;
   font-weight: 400;
 }
@@ -28,6 +30,7 @@ a:hover {
 }
 
 p {
+  text-align: center;
   color: red;
   margin-left: 5rem;
 }
@@ -46,12 +49,14 @@ p {
 }
 
 .h2, .h4 {
+  text-align: center;
   margin-left: 4vmin;
   font-weight: 600;
   /*text-shadow: 1px 1px #E9E3B4;*/
 }
 
 body {
+  text-align: center;
   background-color: #AABD8C;
   /*font-family: 'Sofadi One', cursive;*/
   /*font-family: 'Patrick Hand SC', cursive;*/
@@ -65,8 +70,11 @@ body {
 
 .profile {
   border: 1px solid #E9E3B4;
-  margin: 3vmax 3vmax 3vmax 3vmax;
-  padding: 1vmax 1vmax 1vmax 1vmax;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vmax;
+  margin-bottom: 3vmax;
+  padding: 1vmax;
   background-color: #3E6990;
 }
 

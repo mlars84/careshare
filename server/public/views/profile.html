@@ -14,7 +14,7 @@
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
 <h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
-<div class="profileContainer container col-lg-6">
+<div class="profileContainer container">
   <div class="profile" ng-repeat="prof in pc.userProfiles">
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div class="profileText">
@@ -30,3 +30,4 @@
     <button ng-click="pc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
   </div>
 </div>
+<footer>Thanks for CareSharing!</footer>
