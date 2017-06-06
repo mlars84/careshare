@@ -47,6 +47,14 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       url: '/careshare/getProfilesToShare'
     }).then(function(res) {
       console.log('res.data =>', res.data);
+      vm.profiles.names = [];
+      for (var i = 0; i < res.data.length; i++) {
+        console.log(res.data[i]);
+        if(res.data[i].userCreated === vm.userId){
+          vm.profiles.names.push(res.data[i].name);
+          console.log(vm.profiles.names);
+        }
+      }
     }); //end http GET
   }; //end getProfilesToShare
 

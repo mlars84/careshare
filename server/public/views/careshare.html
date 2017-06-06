@@ -8,8 +8,11 @@
     <select ng-model="csc.selectedUser" ng-options="user._id as user.username for user in csc.users.list">
     </select>
     {{csc.selectedUser}}
-    <div ng-repeat="profs in csc.profiles">
-      {{csc.profiles}}
+    <div class="profileNames">
+      <button ng-click="csc.getProfilesToShare()" type="button" name="button" class="btn btn-info">Choose profile to share</button>
+      <div ng-repeat="name in csc.profiles.names">
+        <a href="#"><h2>{{name}}</h2></a>
+      </div>
     </div>
     <br><br>
     <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>

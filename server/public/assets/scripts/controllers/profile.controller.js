@@ -119,8 +119,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.deleteProfile = function(id) {
     console.log('delete button clicked', id);
     $http({
-      method: 'DELETE',
-      url: '/user/deleteProfile',
+      method: 'DELETE', url: '/user/deleteProfile',
       params: { id: id }
     }).then(function(res) {
       console.log('back from server with =>', res);
