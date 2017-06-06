@@ -45,6 +45,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     vm.clearUsers();
   }; // end returnToProfile
 
+  //function to clearUsers from dropdown
   vm.clearUsers = function() {
     vm.users.list = [];
   }; //end clearUsers

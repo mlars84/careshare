@@ -34,22 +34,29 @@ router.get('/logout', function(req, res) {
 router.post('/addProfile', function(req, res) {
   console.log('Adding Profile', req.body);
   var newCareProfile = careProfileModel(req.body);
-  console.log('newCareProfile =>', newCareProfile);
-  newCareProfile.save().then(function(err){
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else {
-      res.sendStatus(200);
-    }
-  });
+  if (newCareProfile.user == req.user._id){
+    // console.log('newCareProfile =>', newCareProfile);
+    newCareProfile.save().then(function(data, err){
+      if (data) {
+        console.log('data', data);
+        res.sendStatus(200);
+      } else {
+        console.log('err', err);
+        res.sendStatus(500);
+      }
+    });
+  } else {
+    console.log('user does not have access to');
+    console.log(newCareProfile.user, req.user._id);
+    res.sendStatus(403);
+  }
 }); //end addProfile
 
 //GET to get specific user profiles
 router.get('/getUserProfiles', function(req, res) {
   console.log('Get specific user Profiles');
   careProfileModel.find().then(function(data) {
-    console.log('data =>', data);
+    // console.log('data =>', data);
     res.send(data);
   });
 }); //end getUserProfiles
@@ -59,10 +66,11 @@ router.delete('/deleteProfile', function(req, res) {
   console.log('Delete a care profile');
   var idToDelete = req.query.id;
   console.log('idToDelete =>', idToDelete);
-  careProfileModel.remove({_id: idToDelete}).then(function(err) {
-    if (err){
+  careProfileModel.remove({_id: idToDelete}).then(function(data, err) {
+    if (data){
       res.sendStatus(200);
     } else {
+      console.log('err', err);
       res.sendStatus(500);
     }
 
