@@ -19,8 +19,7 @@ div[ng-app] {
   margin: 50px;
 }
 
-a{
-  text-align: center;
+a { 
   color: #E9E3B4;
   font-weight: 400;
 }

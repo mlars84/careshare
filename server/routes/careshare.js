@@ -14,6 +14,14 @@ router.get('/getUsers', function(req, res) {
     console.log('user data =>', data);
     res.send(data);
   });
-}); //end getUsers
+}); //end getUsers route
+
+// route.get('/getProfilesToShare', function(req, res) {
+//   console.log('getProfilesToShare from DB');
+//   careProfileModel.find({name: {$ne: req.careprofile.name}}).then(function(data) {
+//     console.log('data', data);
+//     res.send(data);
+//   });
+// }); //end getProfilesToShare route
 
 module.exports = router;

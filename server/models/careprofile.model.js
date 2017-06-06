@@ -9,7 +9,8 @@ var CareProfileSchema = new Schema({
     age: {type: String, required: true},
     basicInfo: {type: String, required: true},
     careInfo: {type: String, required: true},
-    user: {type: String, require: true}
+    userCreated: {type: String, required: true},
+    sharedWith: {type: Array, required: false}
 });
 
 module.exports = mongoose.model('careprofiles', CareProfileSchema);

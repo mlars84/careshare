@@ -4,9 +4,10 @@
     <!-- <div class="container" ng-repeat="user in csc.users.list"><br>
       <button ng-click="csc.shareProfile()" type="button" name="button" class="btn btn-info">Share with {{user.username}}</button>
     </div> -->
-    {{csc.selectedUser}}
+
     <select ng-model="csc.selectedUser" ng-options="user._id as user.username for user in csc.users.list">
     </select>
+    {{csc.selectedUser}}
     <br><br>
     <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>
 </div>

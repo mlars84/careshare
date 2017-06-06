@@ -4,7 +4,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   vm.userProfiles = [];
 
-
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
     var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
@@ -54,7 +53,8 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       age: vm.ageIn,
       basicInfo: vm.basicInfoIn,
       careInfo: vm.careInfoIn,
-      user: vm.userId
+      userCreated: vm.userId,
+      sharedWith: []
     };
     console.log(profileToSend);
     $http({
@@ -85,11 +85,11 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       method: 'GET',
       url: '/user/getUserProfiles'
     }).then(function(res) {
-      console.log('res.data =>', res.data, 'res.data.user =>', res.data.user, 'vm.userId =>', vm.userId);
+      console.log('res.data =>', res.data, 'vm.userId =>', vm.userId);
       vm.userProfiles = [];
       for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data[i].user);
-        if(res.data[i].user === vm.userId){
+        console.log(res.data[i].userCreated);
+        if(res.data[i].userCreated === vm.userId){
           vm.userProfiles.push(res.data[i]);
           console.log(vm.userProfiles);
         }

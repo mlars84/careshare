@@ -1,6 +1,7 @@
 myApp.service('careShareService', ['$http', '$location', function($http, $location) {
   var vm = this;
   vm.users = {list: []};
+  vm.profiles = {names: []};
 
   vm.checkUserSession = function() {
     $http.get('/user').then(function(response) {
@@ -37,6 +38,17 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       } //end for
     });
   }; //end getUsers
+
+  //function to bring in just profile names from database and id of user that created them
+  vm.getProfilesToShare = function() {
+    console.log('in getProfilesToShare');
+    $http({
+      method: 'GET',
+      url: '/careshare/getProfilesToShare'
+    }).then(function(res) {
+      console.log(res.data);
+    }); //end http GET
+  }; //end getProfilesToShare
 
   //function to return to profile
   vm.returnToProfile = function() {
