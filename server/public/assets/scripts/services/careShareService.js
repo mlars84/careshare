@@ -2,6 +2,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   var vm = this;
   vm.users = {list: []};
   vm.profiles = {names: []};
+  vm.careShares = {shares: []};
 
   vm.checkUserSession = function() {
     $http.get('/user').then(function(response) {
@@ -48,6 +49,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     }).then(function(res) {
       console.log('res.data =>', res.data);
       vm.profiles.names = [];
+      vm.getCareShares(res.data);
       for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
@@ -58,7 +60,6 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   }; //end getProfilesToShare
 
   vm.getProfilesToShare();
-  console.log(vm.profiles.names.userCreated);
 
   //function to return to profile
   vm.returnToProfile = function() {
@@ -85,5 +86,26 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       console.log(res.data);
     });
   }; // end shareProfile
+
+  //function to append the user's careshares to careshare.html
+  vm.getCareShares = function(allProfiles) {
+    console.log('in getCareShares function');
+    console.log(allProfiles);
+    vm.careShares.shares = [];
+    for (var i = 0; i < allProfiles.length; i++) {
+      console.log('allProfiles[i] =>', allProfiles[i]);
+      var sharedWithArray = allProfiles[i].sharedWith;
+      for (var j = 0; j < sharedWithArray.length; j++) {
+        console.log('sharedWithArray[j] =>', sharedWithArray[j]);
+        if(sharedWithArray[j] == vm.userId) {
+          console.log(sharedWithArray[j]);
+          vm.careShares.shares.push(allProfiles[i]);
+          console.log('vm.careShares.shares =>', vm.careShares.shares);
+        } else {
+          console.log('NO MATCH!');
+        }
+      }
+    }
+  }; //end getCareShares
 
 }]);

@@ -24,15 +24,12 @@ router.get('/getProfilesToShare', function(req, res) {
   });
 }); //end getProfilesToShare route
 
+//PUT to add a user to the careprofile "sharedWith" array
 router.put('/shareProfile', function(req, res) {
   console.log('user to share with =>', req.body.userId, 'currently logged in user =>', req.user._id, 'careProfileId =>', req.body.careProfile._id, 'user who created profile =>', req.body.careProfile.userCreated);
-  var userCreatedId = req.body.careProfile.userCreated;
-  var careProfileId = req.body.careProfile._id;
-  var userToShareWith = req.body.userId;
 
-  if(userCreatedId == req.user._id){
-    careProfileModel.update({_id: careProfileId}, {$addToSet: {sharedWith: userToShareWith}}, function(err){
-      console.log('err?', err);
+  if(req.body.careProfile.userCreated == req.user._id){
+    careProfileModel.update({_id: req.body.careProfile._id}, {$addToSet: {sharedWith: req.body.userId}}, function(err){
       if (err) {
         console.log('err', err);
         res.sendStatus(500);

@@ -14,6 +14,7 @@
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
 <h2 class="h2">Your CareProfiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
+<button ng-click="pc.shareProfile()" type="button" name="button" class="btn btn-default profileBtn">Share your CareProfiles with CareGivers!</button>
 <div class="profileContainer container">
   <div class="profile" ng-repeat="prof in pc.userProfiles">
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
@@ -26,7 +27,6 @@
       </ul>
     </div>
     <button ng-click="pc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
-    <button ng-click="pc.shareProfile()" type="button" name="button" class="btn btn-default profileBtn">Share</button>
     <button ng-click="pc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
   </div>
 </div>

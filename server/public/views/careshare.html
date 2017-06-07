@@ -1,16 +1,30 @@
 <!-- Div to append list of other users -->
 <div ng-init="csc.getUsers()">
   <h2>Share with other CareGivers:</h2>
-    <!-- <div class="container" ng-repeat="user in csc.users.list"><br>
-      <button ng-click="csc.shareProfile()" type="button" name="button" class="btn btn-info">Share with {{user.username}}</button>
-    </div> -->
-
-    <h3 class="shareText">Select a CareGiver</h3>
+  <h3 class="shareText">Select a CareGiver</h3>
     <select ng-model="csc.selectedUser" ng-options="user._id as user.username for user in csc.users.list">
     </select><br><br>
-    <h3 class="shareText">Select a CareProfile</h3>
+</div>
+<div ng-init="csc.getProfilesToShare()">
+  <h3 class="shareText">Select a CareProfile</h3>
     <select ng-model="csc.selectedProfile" ng-options="prof as prof.name for prof in csc.profiles.names">
     </select><br><br>
-    <button ng-click="csc.shareProfile(csc.selectedUser, csc.selectedProfile)" type="button" name="button" class="btn btn-info">Share CareProfile</button>
-    <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>
 </div>
+<button ng-click="csc.shareProfile(csc.selectedUser, csc.selectedProfile)" type="button" name="button" class="btn btn-info">Share CareProfile</button>
+<button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button>
+<br><br><br><br><hr>
+<h2>Your CareShares</h2>
+<div ng-init="csc.getCareShares()">
+  <div class="profileContainer container">
+    <div class="profile" ng-repeat="share in csc.careShares.shares">
+      <img class="profImg" ng-src="{{share.imageUrl}}" alt="" height="50%" width="50%">
+      <div class="profileText">
+        <ul>
+          <h3>NAME: {{share.name}}</h3>
+          <h4>Age: {{share.age}}</h4>
+          <h4>Basic Info: {{share.basicInfo}}</h4>
+          <h4>Care Info: {{share.careInfo}}</h4>
+        </ul>
+      </div>
+</div>
+<!-- {{csc.careShares.shares}} -->
