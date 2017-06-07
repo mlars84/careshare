@@ -40,6 +40,12 @@ router.put('/shareProfile', function(req, res) {
   } else{
     console.log('userCreated and sessionID NOT EQUAL');
   }
-});
+}); //end shareProfile PUT
+
+//DELTE route to unshare with a user
+// router.delete('/unShareProfile', function(req, res) {
+//   console.log('in unShareProfile route');
+//   careProfileModel.remove();
+// });
 
 module.exports = router;

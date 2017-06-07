@@ -87,6 +87,17 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     });
   }; // end shareProfile
 
+  //function to unshare previously shared profiles
+  vm.unShareProfile = function(user, profile) {
+    console.log('inside unShareProfile function', user, profile);
+    $http({
+      method: 'DELETE',
+      url: '/careshare/unShareProfile',
+    }).then(function(res) {
+      console.log(res.data);
+    });
+  }; //end unShareProfile
+
   //function to append the user's careshares to careshare.html
   vm.getCareShares = function(allProfiles) {
     console.log('in getCareShares function');

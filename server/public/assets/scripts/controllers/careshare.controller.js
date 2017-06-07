@@ -22,4 +22,6 @@ myApp.controller('CareShareController', ['careShareService', function(careShareS
   self.getCareShares = careShareService.getCareShares;
   self.careShares = careShareService.careShares;
 
+  self.unShareProfile = careShareService.unShareProfile;
+
 }]);

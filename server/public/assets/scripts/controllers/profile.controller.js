@@ -63,10 +63,9 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       data: profileToSend
     }).then(function(res) {
       console.log('back from server with =>', res.data);
+      vm.clearInputs();
+      vm.getUserProfiles();
     });
-
-    vm.clearInputs();
-    vm.getUserProfiles();
   }; //end addProfile
 
   //function to clear the inputs after submit button is clicked
