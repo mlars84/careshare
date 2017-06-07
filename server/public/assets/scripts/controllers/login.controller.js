@@ -1,49 +1,15 @@
-myApp.controller('LoginController', ['$http', '$location', function($http, $location) {
+myApp.controller('LoginController', ['loginService', function(loginService) {
   console.log('LoginController loaded');
-    var vm = this;
 
-    vm.user = {
-      username: '',
-      password: ''
-    };
-    vm.message = '';
+  var self = this;
 
-    vm.login = function() {
-      console.log('here', vm.user);
-      if(vm.user.username === '' || vm.user.password === '') {
-        vm.message = "Enter your username and password!";
-      } else {
-        console.log('sending to server...', vm.user);
-        $http.post('/', vm.user).then(function(response) {
-          console.log('login from server:', response);
-          if(response.data.username) {
-            console.log('success: ', response.data);
-            // location works with SPA (ng-route)
-            console.log('redirecting to profile page');
-            $location.path('/profile');
-          } else {
-            console.log('failure: ', response);
-            vm.message = "You are not registered!";
-          }
-        });
-      }
-    };
+  self.user = loginService.user;
 
-    vm.registerUser = function() {
-      console.log('registerUser function');
-      if(vm.user.username === '' || vm.user.password === '') {
-        vm.message = "Choose a username and password!";
-        console.log(vm.message);
-      } else {
-        console.log('sending to server...', vm.user);
-        $http.post('/register', vm.user).then(function(response) {
-          console.log('success', response.data);
-          $location.path('/home');
-        },
-        function(response) {
-          console.log('error');
-          vm.message = "Please try again.";
-        });
-      }
-    };
-}]);
+  self.message = loginService.message;
+
+  self.login = loginService.login;
+
+  self.registerUser = loginService.registerUser;
+
+
+}]); //end LoginController

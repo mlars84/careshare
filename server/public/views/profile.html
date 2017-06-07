@@ -1,31 +1,34 @@
 <div class="container">
-    <h1 id="welcome" class="user">Welcome, {{uc.userName}}!</h1>
-    <button class="btn btn-info" ng-click="uc.logout()">Log Out</button>
-    <h4>Add a profile of someone or something in your life that needs some care!</h4>
+    <h1 id="welcome" class="user">Welcome, {{pc.userName}}!</h1>
+    <button class="btn btn-info" ng-click="pc.logout()">Log Out</button>
+    <h4>Add a profile of someone or something in your life that needs some care.</h4>
     <form class="careProfileInputs" action="index.html" method="post">
-      <input type="button" value="Upload Image" ng-click="uc.showPicker(pic)" class="btn btn-info"/>
-      <input ng-model="uc.nameIn" type="text" placeholder="name" value=""><br><br>
-      <input ng-model="uc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
-      <input ng-model="uc.careInfoIn" type="text" placeholder="Care info" value="" size="50">
-      <button ng-click="uc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
+      <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
+      <input ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
+      <input ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
+      <input ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
+      <input ng-model="pc.careInfoIn" type="text" placeholder="Care info" value="" size="50"><br><br>
+      <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
     </form>
 </div>
 
 <br><br><br><br>
 <!-- Div to append user profiles and edit/share/delete buttons -->
-<h2 class="h2">Your Care Profiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
-<div class="profileContainer container col-lg-6">
-  <div class="profile" ng-repeat="prof in uc.userProfiles">
+<h2 class="h2">Your CareProfiles</h2><h4 class="h4">(click on text to edit and click "Update" to save your changes)</h4>
+<button ng-click="pc.shareProfile()" type="button" name="button" class="btn btn-default profileBtn">Share your CareProfiles with CareGivers!</button>
+<div class="profileContainer container">
+  <div class="profile" ng-repeat="prof in pc.userProfiles">
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div class="profileText">
       <ul>
         <h3>NAME: </h3><ul><a href="#" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
+        <h4>Age: </h4><ul><a href="#" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
         <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
         <h4>Care Info: </h4><ul><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update care info!' }}</a></ul>
       </ul>
     </div>
-    <button ng-click="uc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
-    <button ng-click="uc.shareProfile()" type="button" name="button" class="btn btn-default profileBtn">Share</button>
-    <button ng-click="uc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
+    <button ng-click="pc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
+    <button ng-click="pc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
   </div>
 </div>
+<footer>Thanks for CareSharing!</footer>

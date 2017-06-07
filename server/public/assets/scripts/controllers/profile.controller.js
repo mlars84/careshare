@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+myApp.controller('profileController', ['$scope', '$http', '$location', 'profileService', function($scope, $http, $location, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
 
@@ -37,9 +37,9 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
 
   //Passport function to logout user
   vm.logout = function() {
-    $http.get('/user/logout').then(function(response) {
-      console.log('logged out');
-      $location.path("/");
+    $http.get('/user/logout').then(function(res) {
+      console.log('logged out', res);
+      $location.path("/home");
     });
   }; //end logout
 
@@ -50,9 +50,11 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
     var profileToSend = {
       imageUrl: vm.pix.url,
       name: vm.nameIn,
+      age: vm.ageIn,
       basicInfo: vm.basicInfoIn,
       careInfo: vm.careInfoIn,
-      user: vm.userId
+      userCreated: vm.userId,
+      sharedWith: []
     };
     console.log(profileToSend);
     $http({
@@ -60,7 +62,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       url: '/user/addProfile',
       data: profileToSend
     }).then(function(res) {
-      console.log(res.data);
+      console.log('back from server with =>', res.data);
     });
 
     vm.clearInputs();
@@ -71,6 +73,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   vm.clearInputs = function() {
     vm.imageUrl = '';
     vm.nameIn = '';
+    vm.ageIn = '';
     vm.basicInfoIn = '';
     vm.careInfoIn = '';
   }; //end clearInputs
@@ -82,11 +85,11 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       method: 'GET',
       url: '/user/getUserProfiles'
     }).then(function(res) {
-      console.log('res.data =>', res.data, 'res.data.user =>', res.data.user, 'vm.userId =>', vm.userId);
+      console.log('res.data =>', res.data, 'vm.userId =>', vm.userId);
       vm.userProfiles = [];
       for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data[i].user);
-        if(res.data[i].user === vm.userId){
+        console.log(res.data[i].userCreated);
+        if(res.data[i].userCreated === vm.userId){
           vm.userProfiles.push(res.data[i]);
           console.log(vm.userProfiles);
         }
@@ -102,7 +105,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
       url: '/user/updateProfile',
       data: profile
     }).then(function(res) {
-      console.log(res.data);
+      console.log('back from server with =>', res.data);
       vm.getUserProfiles();
     });
   }; //end editProfile
@@ -110,18 +113,17 @@ myApp.controller('UserController', ['$scope', '$http', '$location', function($sc
   //function to share the profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
-
+    $location.path('/careshare');
   }; //end shareProfile
 
   vm.deleteProfile = function(id) {
     console.log('delete button clicked', id);
     $http({
-      method: 'DELETE',
-      url: '/user/deleteProfile',
+      method: 'DELETE', url: '/user/deleteProfile',
       params: { id: id }
     }).then(function(res) {
-      console.log(res);
+      console.log('back from server with =>', res);
       vm.getUserProfiles();
     });
   }; //end deleteProfile
-}]); //end UserController
+}]); //end profileController

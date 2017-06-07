@@ -11,6 +11,7 @@ var session = require('express-session');
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
+var careshare = require('./routes/careshare');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -35,13 +36,14 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
+app.use('/careshare', careshare);
 app.use('/*', index);
 
 // Mongo Connection //
 var mongoURI = '';
 // process.env.MONGODB_URI will only be defined if you
 // are running on Heroku
-if(process.env.MONGODB_URI != undefined) {
+if(process.env.MONGODB_URI !== undefined) {
     // use the string value of the environment variable
     mongoURI = process.env.MONGODB_URI;
 } else {

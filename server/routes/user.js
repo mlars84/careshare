@@ -4,6 +4,7 @@ var passport = require('passport');
 var path = require('path');
 var mongoose = require('mongoose');
 var careProfileModel = require('../models/careprofile.model');
+var userModel = require('../models/user.model');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
@@ -33,23 +34,35 @@ router.get('/logout', function(req, res) {
 router.post('/addProfile', function(req, res) {
   console.log('Adding Profile', req.body);
   var newCareProfile = careProfileModel(req.body);
-  console.log('newCareProfile =>', newCareProfile);
-  newCareProfile.save().then(function(err){
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else {
-      res.sendStatus(200);
-    }
-  });
+  if (newCareProfile.userCreated == req.user._id){
+    console.log('newCareProfile =>', newCareProfile);
+    newCareProfile.save().then(function(data, err){
+      if (data) {
+        console.log('data', data);
+        res.sendStatus(200);
+      } else {
+        console.log('err', err);
+        res.sendStatus(500);
+      }
+    });
+  } else {
+    console.log('user does not have access to');
+    console.log(newCareProfile.userCreated, req.user._id);
+    res.sendStatus(403);
+  }
 }); //end addProfile
 
 //GET to get specific user profiles
 router.get('/getUserProfiles', function(req, res) {
   console.log('Get specific user Profiles');
-  careProfileModel.find().then(function(data) {
-    console.log('data =>', data);
-    res.send(data);
+  careProfileModel.find().then(function(data, err) {
+    // console.log('data =>', data);
+    if(data){
+      res.send(data);
+    } else{
+      console.log('err', err);
+      res.sendStatus(500);
+    }
   });
 }); //end getUserProfiles
 
@@ -58,13 +71,13 @@ router.delete('/deleteProfile', function(req, res) {
   console.log('Delete a care profile');
   var idToDelete = req.query.id;
   console.log('idToDelete =>', idToDelete);
-  careProfileModel.remove({_id: idToDelete}).then(function(err) {
-    if (err){
+  careProfileModel.remove({_id: idToDelete}).then(function(data, err) {
+    if (data){
       res.sendStatus(200);
     } else {
+      console.log('err', err);
       res.sendStatus(500);
     }
-
   });
 }); //end deleteProfile
 
@@ -73,15 +86,14 @@ router.put('/updateProfile', function(req, res) {
   console.log('Updating Profile', req.body);
   var newCareProfile = careProfileModel(req.body);
   console.log('newCareProfile =>', newCareProfile);
-  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(err){
+  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(err){
     if (err) {
-      console.log(err);
+      console.log('err', err);
       res.sendStatus(500);
     } else {
       res.sendStatus(200);
     }
   });
 }); //end updateProfile
-
 
 module.exports = router;

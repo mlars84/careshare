@@ -1,12 +1,12 @@
 <div class="container">
   <h1 class="home">Login</h1>
   <hr>
-  <h2>Create a unique username and password to start adding careprofiles.</h2>
+  <h2>Create a unique username and password to start adding CareProfiles.</h2>
     <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
     <form ng-submit="lc.login()">
       <div>
           <label for="username">Username:</label>
-          <input type="text" ng-model="lc.user.username" />
+          <input type="text" ng-model="lc.user.username"/>
       </div>
       <div>
           <label for="password">Password:</label>
