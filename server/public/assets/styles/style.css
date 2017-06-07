@@ -10,6 +10,9 @@
 .jumbotron {
   text-align: center;
   background-color: #E9E3B4;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  font-size: 8vmin;
   padding-top: 0;
   padding-bottom: 0;
   border: 1px solid #3E6990;
@@ -19,7 +22,7 @@ div[ng-app] {
   margin: 50px;
 }
 
-a { 
+a {
   color: #E9E3B4;
   font-weight: 400;
 }
@@ -36,7 +39,7 @@ p {
 
 .lead {
   /*text-align: center;*/
-  color: red;
+  color: #3E6990;
   font-weight: 800;
   font-size: 8vmin;
   border-radius: 25px;
@@ -114,6 +117,13 @@ body {
 .btn-info:hover {
   background-color: #E9E3B4;
   color: #3E6990;
+}
+
+.shareText {
+  /*border: 1px solid #E9E3B4;*/
+  color: #E9E3B4;
+  /*background-color: #3E6990;*/
+  /*margin-left: 0;*/
 }
 
 #entryForm {

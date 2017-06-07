@@ -49,14 +49,16 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       console.log('res.data =>', res.data);
       vm.profiles.names = [];
       for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data[i]);
+        console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
-          vm.profiles.names.push(res.data[i].name);
-          console.log(vm.profiles.names);
+          vm.profiles.names.push(res.data[i]);
         }
       }
     }); //end http GET
   }; //end getProfilesToShare
+
+  vm.getProfilesToShare();
+  console.log(vm.profiles.names.userCreated);
 
   //function to return to profile
   vm.returnToProfile = function() {
@@ -71,9 +73,17 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   }; //end clearUsers
 
   //function to share a profile with another user
-  vm.shareProfile = function() {
+  vm.shareProfile = function(user, profile) {
     console.log('share button clicked!');
-
+    console.log(user, profile);
+    var careShareToSend = {userId: user, careProfile: profile};
+    $http({
+      method: 'PUT',
+      url: '/careshare/shareProfile',
+      data: careShareToSend
+    }).then(function(res) {
+      console.log(res.data);
+    });
   }; // end shareProfile
 
 }]);
