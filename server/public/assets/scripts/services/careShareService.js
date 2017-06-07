@@ -34,7 +34,8 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
         console.log(res.data[i].username, vm.userName);
         if (res.data[i].username !== vm.userName) {
           vm.users.list.push(res.data[i]);
-          console.log(vm.users.list);
+          console.log();
+          vm.listCareShares(vm.users.list);
         } //end if
       } //end for
     });
@@ -54,6 +55,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
           vm.profiles.names.push(res.data[i]);
+          vm.listCareShares(vm.profiles.names);
         }
       }
     }); //end http GET
@@ -90,6 +92,8 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   //function to unshare previously shared profiles
   vm.unShareProfile = function(user, profile) {
     console.log('inside unShareProfile function', user, profile);
+    var careShareToDelete = {userId: user, profileId: profile._id};
+    console.log(careShareToDelete);
     $http({
       method: 'DELETE',
       url: '/careshare/unShareProfile',
@@ -118,5 +122,10 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       }
     }
   }; //end getCareShares
+
+  //function to list out who the session user has shared a profile with
+  vm.listCareShares = function(users, careProfiles) {
+  
+  };
 
 }]);
