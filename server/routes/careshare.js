@@ -26,10 +26,9 @@ router.get('/getProfilesToShare', function(req, res) {
 
 //PUT to add a user to the careprofile "sharedWith" array
 router.put('/shareProfile', function(req, res) {
-  console.log('user to share with =>', req.body.userId, 'currently logged in user =>', req.user._id, 'careProfileId =>', req.body.careProfile._id, 'user who created profile =>', req.body.careProfile.userCreated);
-
-  if(req.body.careProfile.userCreated == req.user._id){
-    careProfileModel.update({_id: req.body.careProfile._id}, {$addToSet: {sharedWith: req.body.userId}}, function(err){
+  console.log('req.body =>', req.body);
+  console.log('user to share with =>', 'name:', req.body.userToShareWith.username, 'id:', req.body.userToShareWith._id, 'currently logged in user =>', req.user._id, 'careProfileId =>', req.body.careProfileToShare._id, 'user who created profile =>', req.body.careProfileToShare.userCreated);
+  if(req.body.careProfileToShare.userCreated == req.user._id){ careProfileModel.findByIdAndUpdate({_id: req.body.careProfileToShare._id}, {$addToSet: {sharedWith: {username: req.body.userToShareWith.username, userId: req.body.userToShareWith._id}}}, function(err){
       if (err) {
         console.log('err', err);
         res.sendStatus(500);
@@ -41,18 +40,5 @@ router.put('/shareProfile', function(req, res) {
     console.log('userCreated and sessionID NOT EQUAL');
   }
 }); //end shareProfile PUT
-
-//DELTE route to unshare with a user
-router.delete('/unShareProfile', function(req, res) {
-  console.log('in unShareProfile route');
-  // careProfileModel.remove().then(function(data, err) {
-  //   if (data){
-  //     res.sendStatus(200);
-  //   } else {
-  //     console.log('err', err);
-  //     res.sendStatus(500);
-  //   }
-  // });
-}); //end unShareProfile DELETE
 
 module.exports = router;

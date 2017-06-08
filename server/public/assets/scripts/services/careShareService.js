@@ -35,7 +35,6 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
         if (res.data[i].username !== vm.userName) {
           vm.users.list.push(res.data[i]);
           console.log();
-          // vm.listCareShares(vm.users.list);
         } //end if
       } //end for
     });
@@ -55,7 +54,6 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
           vm.profiles.names.push(res.data[i]);
-          vm.listCareShares(vm.profiles.names);
         }
       }
     }); //end http GET
@@ -78,8 +76,9 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
   //function to share a profile with another user
   vm.shareProfile = function(user, profile) {
     console.log('share button clicked!');
-    console.log(user, profile);
-    let careShareToSend = {userId: user, careProfile: profile};
+    console.log('user =>', user, 'profile =>', profile);
+    const careShareToSend = {userToShareWith: user, careProfileToShare: profile};
+    console.log(careShareToSend);
     $http({
       method: 'PUT',
       url: '/careshare/shareProfile',
@@ -87,20 +86,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     }).then(function(res) {
       console.log(res.data);
     });
-  }; // end shareProfile
-
-  //function to unshare previously shared profiles
-  vm.unShareProfile = function(user, profile) {
-    console.log('inside unShareProfile function', user, profile);
-    let careShareToDelete = {userId: user, profileId: profile._id};
-    console.log(careShareToDelete);
-    $http({
-      method: 'DELETE',
-      url: '/careshare/unShareProfile',
-    }).then(function(res) {
-      console.log(res.data);
-    });
-  }; //end unShareProfile
+  }; // end shareProfilelo
 
   //function to append the user's careshares to careshare.html
   vm.getCareShares = function(allProfiles) {
@@ -112,8 +98,8 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       let sharedWithArray = allProfiles[i].sharedWith;
       for (let j = 0; j < sharedWithArray.length; j++) {
         console.log('sharedWithArray[j] =>', sharedWithArray[j]);
-        if(sharedWithArray[j] == vm.userId) {
-          console.log(sharedWithArray[j]);
+        if(sharedWithArray[j].userId == vm.userId) {
+          console.log(sharedWithArray[j].userId);
           vm.careShares.shares.push(allProfiles[i]);
           console.log('vm.careShares.shares =>', vm.careShares.shares);
         } else {
@@ -122,11 +108,4 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       }
     }
   }; //end getCareShares
-
-  //function to list out who the session user has shared a profile with
-  vm.listCareShares = function(careProfiles) {
-    console.log('listCareShares func');
-    console.log(careProfiles);
-  };
-
 }]);

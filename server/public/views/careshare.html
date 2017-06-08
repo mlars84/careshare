@@ -3,7 +3,7 @@
 <div ng-init="csc.getUsers()">
   <h2>Share and UnShare with other CareGivers:</h2>
   <h3 class="shareText">Select a CareGiver</h3>
-    <select ng-model="csc.selectedUser" ng-options="user._id as user.username for user in csc.users.list">
+    <select ng-model="csc.selectedUser" ng-options="{_id: user._id, username: user.username} as user.username for user in csc.users.list">
     </select><br><br>
 </div>
 <!-- Div for getting the users list of careprofiles -->
@@ -14,15 +14,8 @@
 </div>
 <!-- share, unshare and return to profile buttons -->
 <button ng-click="csc.shareProfile(csc.selectedUser, csc.selectedProfile)" type="button" name="button" class="btn btn-info">Share CareProfile</button>
-<button ng-click="csc.unShareProfile(csc.selectedUser, csc.selectedProfile)" type="button" name="button" class="btn btn-info">UnShare CareProfile</button>
 <button ng-click="csc.returnToProfile()" type="button" name="button" class="btn btn-info">Back to profile</button><br><br>
 <!-- Div to list who you have currently shared with -->
-<div class="whoYouShareWith">
-  <h3>You've CareShared with:</h3>
-  <div ng-repeat="shares in csc.">
-
-  </div>
-</div>
 <br><br><br><br><hr>
 <!-- Div to list the careprofiles others have shared with you -->
 <h2>CareProfiles others have shared with you</h2>
