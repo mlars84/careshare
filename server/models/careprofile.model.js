@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
 // Mongoose Schema
-var CareProfileSchema = new Schema({
+const CareProfileSchema = new Schema({
     imageUrl: {type: String, required: true},
     name: {type: String, required: true},
     age: {type: String, required: true},

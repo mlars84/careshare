@@ -1,12 +1,12 @@
 myApp.controller('profileController', ['$scope', '$http', '$location', 'profileService', function($scope, $http, $location, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
-  var vm = this;
+  const vm = this;
 
   vm.userProfiles = [];
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
-    var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
+    let client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
     client.pick({}).then(function(result) {
       console.log('returned URL: ', result.filesUploaded[0].url);
       vm.pix = {url: result.filesUploaded[0].url};
@@ -47,7 +47,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.addProfile = function() {
     console.log('clicked submit');
     //object to send to DB via user.js route from inputs on DOM
-    var profileToSend = {
+    let profileToSend = {
       imageUrl: vm.pix.url,
       name: vm.nameIn,
       age: vm.ageIn,
@@ -86,7 +86,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     }).then(function(res) {
       console.log('res.data =>', res.data, 'vm.userId =>', vm.userId);
       vm.userProfiles = [];
-      for (var i = 0; i < res.data.length; i++) {
+      for (let i = 0; i < res.data.length; i++) {
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
           vm.userProfiles.push(res.data[i]);

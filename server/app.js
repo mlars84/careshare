@@ -1,17 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var path = require('path');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const path = require('path');
 
-var passport = require('./strategies/user.strategy');
-var session = require('express-session');
+const passport = require('./strategies/user.strategy');
+const session = require('express-session');
 
 // Route includes
-var index = require('./routes/index');
-var user = require('./routes/user');
-var register = require('./routes/register');
-var careshare = require('./routes/careshare');
+const index = require('./routes/index');
+const user = require('./routes/user');
+const register = require('./routes/register');
+const careshare = require('./routes/careshare');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, './public')));
 // Passport Session Configuration //
 app.use(session({
    secret: 'secret',
-   key: 'user', // this is the name of the req.variable. 'user' is convention, but not required
+   key: 'user', // this is the name of the req.constiable. 'user' is convention, but not required
    resave: 'true',
    saveUninitialized: false,
    cookie: { maxage: 60000, secure: false }
@@ -40,19 +40,19 @@ app.use('/careshare', careshare);
 app.use('/*', index);
 
 // Mongo Connection //
-var mongoURI = '';
+let mongoURI = '';
 // process.env.MONGODB_URI will only be defined if you
 // are running on Heroku
 if(process.env.MONGODB_URI !== undefined) {
-    // use the string value of the environment variable
+    // use the string value of the environment constiable
     mongoURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
     mongoURI = 'mongodb://localhost:27017/careshare';
 }
 
-// var mongoURI = "mongodb://localhost:27017/careshare";
-var mongoDB = mongoose.connect(mongoURI).connection;
+// const mongoURI = "mongodb://localhost:27017/careshare";
+const mongoDB = mongoose.connect(mongoURI).connection;
 
 mongoDB.on('error', function(err){
    if(err) {

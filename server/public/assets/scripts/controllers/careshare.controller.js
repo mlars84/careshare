@@ -1,7 +1,7 @@
 myApp.controller('CareShareController', ['careShareService', function(careShareService) {
   console.log('made it to CareShareController');
 
-  var self = this;
+  const self = this;
 
   self.userName = careShareService.userName;
   self.userId = careShareService.userId;

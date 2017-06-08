@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var path = require('path');
-var mongoose = require('mongoose');
-var careProfileModel = require('../models/careprofile.model');
-var userModel = require('../models/user.model');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const path = require('path');
+const mongoose = require('mongoose');
+const careProfileModel = require('../models/careprofile.model');
+const userModel = require('../models/user.model');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
@@ -33,7 +33,7 @@ router.get('/logout', function(req, res) {
 //POST to add a "Care Profile" to the database
 router.post('/addProfile', function(req, res) {
   console.log('Adding Profile', req.body);
-  var newCareProfile = careProfileModel(req.body);
+  let newCareProfile = careProfileModel(req.body);
   if (newCareProfile.userCreated == req.user._id){
     console.log('newCareProfile =>', newCareProfile);
     newCareProfile.save().then(function(data, err){
@@ -69,7 +69,7 @@ router.get('/getUserProfiles', function(req, res) {
 //DELETE to remove a profile
 router.delete('/deleteProfile', function(req, res) {
   console.log('Delete a care profile');
-  var idToDelete = req.query.id;
+  let idToDelete = req.query.id;
   console.log('idToDelete =>', idToDelete);
   careProfileModel.remove({_id: idToDelete}).then(function(data, err) {
     if (data){
@@ -84,7 +84,7 @@ router.delete('/deleteProfile', function(req, res) {
 router.put('/updateProfile', function(req, res) {
 
   console.log('Updating Profile', req.body);
-  var newCareProfile = careProfileModel(req.body);
+  let newCareProfile = careProfileModel(req.body);
   console.log('newCareProfile =>', newCareProfile);
   careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(err){
     if (err) {

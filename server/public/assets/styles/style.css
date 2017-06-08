@@ -3,19 +3,32 @@
   font-size: 10vmax;
 }
 
+.aHome {
+  transition: all 1s ease-in-out;
+}
+
 .aHome:hover {
-  color: #E9E3B4;
+  transform: #E9E3B4;
 }
 
 .jumbotron {
   text-align: center;
   background-color: #E9E3B4;
   font-family: 'Ubuntu', sans-serif;
+  color: #3E6990;
   font-weight: 800;
   font-size: 8vmin;
   padding-top: 0;
   padding-bottom: 0;
   border: 1px solid #3E6990;
+  transition: all 1s ease-in-out;
+}
+
+.jumbotron:hover {
+  padding-bottom: 10vmin;
+  color: #E9E3B4;
+  background-color: #3E6990;
+  border: 1px solid #E9E3B4;
 }
 
 div[ng-app] {
@@ -25,6 +38,7 @@ div[ng-app] {
 a {
   color: #E9E3B4;
   font-weight: 400;
+  transition: all .4s ease-in-out;
 }
 
 a:hover {
@@ -78,17 +92,22 @@ body {
   margin-bottom: 3vmax;
   padding: 1vmax;
   background-color: #3E6990;
+  transition: all .4s ease-in-out;
+}
+
+.profile:hover {
+  color: #E9E3B4;
 }
 
 .profImg {
   margin: 2vmin 2vmin 2vmin 2vmin;
   border: 1px solid #AABD8C;
   border-radius: 15px;
-  transition: all .2s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .profImg:hover {
-  transform: scale(1.8);
+  transform: scale(1.5);
   margin-left: 5vmax;
 }
 
@@ -102,16 +121,18 @@ body {
   border: 1px solid #AABD8C;
   background-color: #AABD8C;
   color: #E9E3B4;
+  transition: all .4s ease-in-out;
 }
 
 .profileBtn:hover {
-  background-color: #E9E3B4;
   color: #AABD8C;
+  background-color: #E9E3B4;
 }
 
 .btn-info {
   background-color: #3E6990;
   color: #E9E3B4;
+  transition: all .3s ease-in-out;
 }
 
 .btn-info:hover {
@@ -124,6 +145,12 @@ body {
   color: #E9E3B4;
   /*background-color: #3E6990;*/
   /*margin-left: 0;*/
+}
+
+footer {
+  color: #3E6990;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 4vmin;
 }
 
 #entryForm {

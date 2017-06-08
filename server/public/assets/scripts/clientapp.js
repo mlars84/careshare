@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
+const myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

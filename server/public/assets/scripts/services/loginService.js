@@ -1,5 +1,5 @@
 myApp.service('loginService', ['$http', '$location', function($http, $location) {
-  var vm = this;
+  const vm = this;
 
   vm.user = {
     username: '',

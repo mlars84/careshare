@@ -1,7 +1,7 @@
 myApp.controller('LoginController', ['loginService', function(loginService) {
   console.log('LoginController loaded');
 
-  var self = this;
+  const self = this;
 
   self.user = loginService.user;
 

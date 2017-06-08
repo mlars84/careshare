@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var path = require('path');
-var mongoose = require('mongoose');
-var careProfileModel = require('../models/careprofile.model');
-var userModel = require('../models/user.model');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const path = require('path');
+const mongoose = require('mongoose');
+const careProfileModel = require('../models/careprofile.model');
+const userModel = require('../models/user.model');
 
 //GET to get user list from DB to profile.html
 router.get('/getUsers', function(req, res) {
@@ -43,9 +43,16 @@ router.put('/shareProfile', function(req, res) {
 }); //end shareProfile PUT
 
 //DELTE route to unshare with a user
-// router.delete('/unShareProfile', function(req, res) {
-//   console.log('in unShareProfile route');
-//   careProfileModel.remove();
-// });
+router.delete('/unShareProfile', function(req, res) {
+  console.log('in unShareProfile route');
+  // careProfileModel.remove().then(function(data, err) {
+  //   if (data){
+  //     res.sendStatus(200);
+  //   } else {
+  //     console.log('err', err);
+  //     res.sendStatus(500);
+  //   }
+  // });
+}); //end unShareProfile DELETE
 
 module.exports = router;

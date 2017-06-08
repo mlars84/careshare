@@ -1,6 +1,6 @@
-var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
-var User = require('../models/user.model');
+const passport = require('passport');
+const localStrategy = require('passport-local').Strategy;
+const User = require('../models/user.model');
 
 // Store this user's unique id in the session for later reference
 // Only runs during authentication
