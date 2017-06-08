@@ -25,6 +25,9 @@
         <h4>Age: </h4><ul><a href="#" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
         <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
         <h4>Care Info: </h4><ul><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update care info!' }}</a></ul>
+        <h4>You've shared {{prof.name}} with:</h4>
+        <select ng-model="pc.selectedSharedWith" ng-options="sharedProf.userId as sharedProf.username for sharedProf in prof.sharedWith">
+        </select><br><br>
       </ul>
     </div>
     <button ng-click="pc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
