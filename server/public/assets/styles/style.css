@@ -29,6 +29,7 @@
   color: #E9E3B4;
   background-color: #3E6990;
   border: 1px solid #E9E3B4;
+  font-family: 'Indie Flower', cursive;
 }
 
 div[ng-app] {
@@ -62,6 +63,7 @@ p {
   /*font-family: 'Roboto Condensed', sans-serif;*/
   font-family: 'Ubuntu', sans-serif;
   /*text-shadow: 1px 3px #E9E3B4;*/
+  transition: all 2s ease-in-out;
 }
 
 .h2, .h4 {
@@ -112,6 +114,16 @@ body {
   margin: 1vmin 1vmin 1vmin 1vmin; text-align: justify;
   transition: all .6s ease-in-out;
   /*text-shadow: 1px 1px #E9E3B4;*/
+}
+
+.sharedWithDiv {
+  margin-left: 85vmin;
+  /*color: #AABD8C;*/
+}
+
+.sharedWithDropDown {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #E9E3B4;
 }
 
 /*.profileText:hover {

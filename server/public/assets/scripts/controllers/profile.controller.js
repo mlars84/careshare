@@ -23,16 +23,16 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   // Upon load, check this user's session on the server
   $http.get('/user').then(function(response) {
-      if(response.data.username) {
-          // user has a curret session on the server
-          vm.userName = response.data.username;
-          vm.userId = response.data._id;
-          console.log('User Data: ', vm.userName, vm.userId);
-          vm.getUserProfiles();
-      } else {
-          // user has no session, bounce them back to the login page
-          $location.path("/home");
-      }
+    if(response.data.username) {
+      // user has a curret session on the server
+      vm.userName = response.data.username;
+      vm.userId = response.data._id;
+      console.log('User Data: ', vm.userName, vm.userId);
+      vm.getUserProfiles();
+    } else {
+      // user has no session, bounce them back to the login page
+      $location.path("/home");
+    }
   }); //end user session check
 
   //Passport function to logout user
@@ -114,6 +114,20 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     console.log('share button clicked!');
     $location.path('/careshare');
   }; //end shareProfile
+
+  //function to unshare a profile based on selectedSharedWith from profile.html
+  vm.unShare = function(profileToUnshare, currentProfile) {
+    console.log('in unShare function');
+    console.log(profileToUnshare, currentProfile);
+    let objectToSend = {profileToUnshare: profileToUnshare, currentProfile: currentProfile};
+    $http({
+      method: 'PUT',
+      url: '/user/unShare',
+      data: objectToSend
+    }).then(function(res) {
+      console.log(res.data);
+    });
+  }; //end unShare
 
   vm.deleteProfile = function(id) {
     console.log('delete button clicked', id);

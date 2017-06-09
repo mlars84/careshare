@@ -96,4 +96,18 @@ router.put('/updateProfile', function(req, res) {
   });
 }); //end updateProfile
 
+//PUT to remove a user object from careProfile
+router.put('/unShare', function(req, res) {
+  console.log('in unShare post route =>', 'profileId =>', req.body.currentProfile._id, 'profileToUnshare', req.body.profileToUnshare);
+  careProfileModel.update({_id: req.body.currentProfile._id}, {$pull: {'sharedWith': {userId: req.body.profileToUnshare.userId, username: req.body.profileToUnshare.username}}}, function(err, result) {
+    if ('err', err){
+      res.sendStatus(500);
+    } else if(!result){
+      res.sendStatus(409);
+    } else {
+      res.sendStatus(205);
+    }
+  });
+}); //end unShare PUT
+
 module.exports = router;

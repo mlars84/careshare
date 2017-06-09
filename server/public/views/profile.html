@@ -1,15 +1,15 @@
 <div class="container">
-    <h1 id="welcome" class="user">Welcome, {{pc.userName}}!</h1>
-    <button class="btn btn-info" ng-click="pc.logout()">Log Out</button>
-    <h4>Add a profile of someone or something in your life that needs some care.</h4>
-    <form class="careProfileInputs" action="index.html" method="post">
-      <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
-      <input ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
-      <input ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
-      <input ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
-      <input ng-model="pc.careInfoIn" type="text" placeholder="Care info" value="" size="50"><br><br>
-      <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
-    </form>
+  <h1 id="welcome" class="user">Welcome, {{pc.userName}}!</h1>
+  <button class="btn btn-info" ng-click="pc.logout()">Log Out</button>
+  <h4>Add a profile of someone or something in your life that needs some care.</h4>
+  <form class="careProfileInputs" action="index.html" method="post">
+    <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
+    <input ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
+    <input ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
+    <input ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
+    <input ng-model="pc.careInfoIn" type="text" placeholder="Care info" value="" size="50"><br><br>
+    <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
+  </form>
 </div>
 
 <br><br><br>
@@ -25,10 +25,13 @@
         <h4>Age: </h4><ul><a href="#" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
         <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
         <h4>Care Info: </h4><ul><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update care info!' }}</a></ul>
-        <h4>You've shared {{prof.name}} with:</h4>
-        <select ng-model="pc.selectedSharedWith" ng-options="sharedProf.userId as sharedProf.username for sharedProf in prof.sharedWith">
-        </select><br><br>
       </ul>
+      <div class="sharedWithDiv">
+        <h4>You've shared {{prof.name}} with:</h4>
+        <select class="sharedWithDropDown"  ng-model="pc.selectedSharedWith" ng-options="sharedProf.username for sharedProf in prof.sharedWith">
+        </select><br><br>{{sharedProf.username}}
+        <button ng-click="pc.unShare(pc.selectedSharedWith, prof)" class="btn btn-default profileBtn" type="button" name="button">UnShare with {{pc.selectedSharedWith.username}}</button>
+      </div>
     </div>
     <button ng-click="pc.updateProfile(prof)" type="button" name="button" class="btn btn-default profileBtn">Update</button>
     <button ng-click="pc.deleteProfile(prof._id)" type="button" name="button" class="btn btn-default profileBtn">Delete</button>
