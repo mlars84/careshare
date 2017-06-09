@@ -3,6 +3,7 @@ myApp.service('loginService', ['$http', '$location', function($http, $location) 
 
   vm.user = {
     username: '',
+    email: '',
     password: ''
   };
 
