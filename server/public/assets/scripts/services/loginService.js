@@ -7,8 +7,6 @@ myApp.service('loginService', ['$http', '$location', function($http, $location) 
     password: ''
   };
 
-  vm.message = '';
-
   vm.login = function() {
     console.log('here', vm.user);
     if(vm.user.username === '' || vm.user.password === '') {
@@ -24,7 +22,7 @@ myApp.service('loginService', ['$http', '$location', function($http, $location) 
           $location.path('/profile');
         } else {
           console.log('failure: ', response);
-          swal("You are not registered!");
+          swal("Oops! You are not registered!");
         }
       });
     }
@@ -34,7 +32,6 @@ myApp.service('loginService', ['$http', '$location', function($http, $location) 
     console.log('registerUser function');
     if(vm.user.username === '' || vm.user.password === '') {
       swal("Choose a username and password!");
-      console.log(vm.message);
     } else {
       console.log('sending to server...', vm.user);
       $http.post('/register', vm.user).then(function(response) {
@@ -43,7 +40,7 @@ myApp.service('loginService', ['$http', '$location', function($http, $location) 
       },
       function(response) {
         console.log('error');
-        vm.message = "Please try again.";
+        swal("That username or password is already taken! Please try again.");
       });
     }
   }; //end registerUser function

@@ -5,8 +5,6 @@ myApp.controller('LoginController', ['loginService', function(loginService) {
 
   self.user = loginService.user;
 
-  self.message = loginService.message;
-
   self.login = loginService.login;
 
   self.registerUser = loginService.registerUser;

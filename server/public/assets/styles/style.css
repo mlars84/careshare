@@ -36,8 +36,7 @@ div[ng-app] {
   margin: 50px;
 }
 
-.inputs {
-  background-color: #E9E3B4;
+select {
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -120,11 +119,6 @@ body {
   transition: all .6s ease-in-out;
   /*text-shadow: 1px 1px #E9E3B4;*/
 }
-
-/*.sharedWithDiv {
-  margin-left: 85vmin;
-  /*color: #AABD8C;*/
-}*/
 
 .sharedWithDropDown {
   font-family: 'Ubuntu', sans-serif;
