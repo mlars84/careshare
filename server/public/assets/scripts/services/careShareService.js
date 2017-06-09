@@ -6,15 +6,15 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
 
   vm.checkUserSession = function() {
     $http.get('/user').then(function(response) {
-        if(response.data.username) {
-            // user has a curret session on the server
-            vm.userName = response.data.username;
-            vm.userId = response.data._id;
-            console.log('User Data: ', vm.userName, vm.userId);
-        } else {
-            // user has no session, bounce them back to the login page
-            $location.path("/home");
-        }
+      if(response.data.username) {
+        // user has a curret session on the server
+        vm.userName = response.data.username;
+        vm.userId = response.data._id;
+        console.log('User Data: ', vm.userName, vm.userId);
+      } else {
+        // user has no session, bounce them back to the login page
+        $location.path("/home");
+      }
     }); //end user session check
   }; //end checkUserSession
   vm.checkUserSession();
