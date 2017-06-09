@@ -39,6 +39,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.logout = function() {
     $http.get('/user/logout').then(function(res) {
       console.log('logged out', res);
+      swal('Thanks for CareSharing!');
       $location.path("/home");
     });
   }; //end logout
@@ -66,6 +67,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       console.log('back from server with =>', res.data);
       vm.clearInputs();
       vm.getUserProfiles();
+      swal("Good job!", "CareProfile created!", "success");
     });
   }; //end addProfile
 
@@ -76,6 +78,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     vm.ageIn = '';
     vm.basicInfoIn = '';
     vm.careInfoIn = '';
+    vm.emergencyContactsIn = '';
   }; //end clearInputs
 
   //function to get specific user profiles
@@ -107,6 +110,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     }).then(function(res) {
       console.log('back from server with =>', res.data);
       vm.getUserProfiles();
+      swal('' + profile.name + ' has been updated!');
     });
   }; //end editProfile
 
@@ -120,24 +124,59 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.unShare = function(profileToUnshare, currentProfile) {
     console.log('in unShare function');
     console.log(profileToUnshare, currentProfile);
-    let objectToSend = {profileToUnshare: profileToUnshare, currentProfile: currentProfile};
-    $http({
-      method: 'PUT',
-      url: '/user/unShare',
-      data: objectToSend
-    }).then(function(res) {
-      console.log(res.data);
+    swal({
+      title: "Are you sure?",
+      text: "This will unshare with the CareGiver!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel plx!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        swal("Unshared!", "No worries, you can always CareShare again if you'd like.", "success");
+        let objectToSend = {profileToUnshare: profileToUnshare, currentProfile: currentProfile};
+        $http({
+          method: 'PUT',
+          url: '/user/unShare',
+          data: objectToSend
+        }).then(function(res) {
+          console.log(res.data);
+        });
+      } else {
+        swal("Cancelled", "Your CareGiver still has access :)", "error");
+      }
     });
   }; //end unShare
 
   vm.deleteProfile = function(id) {
     console.log('delete button clicked', id);
-    $http({
-      method: 'DELETE', url: '/user/deleteProfile',
-      params: { id: id }
-    }).then(function(res) {
-      console.log('back from server with =>', res);
-      vm.getUserProfiles();
+    swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this CareProfile!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        swal("Deleted!", "Your CareProfile has been deleted.", "success");
+        $http({
+          method: 'DELETE', url: '/user/deleteProfile',
+          params: { id: id }
+        }).then(function(res) {
+          console.log('back from server with =>', res);
+          vm.getUserProfiles();
+        });
+      } else {
+        swal("Cancelled", "Your CareProfile lives on :)", "error");
+      }
     });
   }; //end deleteProfile
 }]); //end profileController

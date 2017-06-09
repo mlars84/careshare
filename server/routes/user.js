@@ -86,7 +86,7 @@ router.put('/updateProfile', function(req, res) {
   console.log('Updating Profile', req.body);
   let newCareProfile = careProfileModel(req.body);
   console.log('newCareProfile =>', newCareProfile);
-  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo}}, function(err){
+  careProfileModel.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, age: req.body.age, basicInfo: req.body.basicInfo, careInfo: req.body.careInfo, emergencyContacts: req.body.emergencyContacts}}, function(err){
     if (err) {
       console.log('err', err);
       res.sendStatus(500);
