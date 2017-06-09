@@ -85,7 +85,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       data: careShareToSend
     }).then(function(res) {
       console.log(res.data);
-      swal('CareProfile has been shared with ' + user.username + '!');
+      swal('' + profile.name + ' has been shared with ' + user.username + '!');
     });
   }; // end shareProfilelo
 

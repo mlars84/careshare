@@ -15,12 +15,12 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   }; //end showPicker
 
 
+  //$scope for filestack
   $scope.nameIn ={
     imageUrl: 'Profile Name'
   };
 
   console.log('checking user');
-
   // Upon load, check this user's session on the server
   $http.get('/user').then(function(response) {
     if(response.data.username) {
@@ -126,11 +126,11 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     console.log(profileToUnshare, currentProfile);
     swal({
       title: "Are you sure?",
-      text: "This will unshare with the CareGiver!",
+      text: "This will unshare " + currentProfile.name +" with " + profileToUnshare.username + "!",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, unshare!",
       cancelButtonText: "No, cancel plx!",
       closeOnConfirm: false,
       closeOnCancel: false
@@ -145,18 +145,20 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
           data: objectToSend
         }).then(function(res) {
           console.log(res.data);
+          vm.getUserProfiles();
         });
       } else {
-        swal("Cancelled", "Your CareGiver still has access :)", "error");
+        swal("Cancelled", "" + profileToUnshare.username + " still has access to " + currentProfile.name + " :)", "error");
       }
     });
   }; //end unShare
 
-  vm.deleteProfile = function(id) {
+  //function to delete a careprofile from the database
+  vm.deleteProfile = function(id, profileToUnshare, currentProfile) {
     console.log('delete button clicked', id);
     swal({
       title: "Are you sure?",
-      text: "You will not be able to recover this CareProfile!",
+      text: "You will not be able to recover " + currentProfile.name + "'s CareProfile!",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
@@ -166,7 +168,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     },
     function(isConfirm){
       if (isConfirm) {
-        swal("Deleted!", "Your CareProfile has been deleted.", "success");
+        swal("Deleted!", "" + currentProfile.name + " has been deleted.", "success");
         $http({
           method: 'DELETE', url: '/user/deleteProfile',
           params: { id: id }
@@ -175,7 +177,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
           vm.getUserProfiles();
         });
       } else {
-        swal("Cancelled", "Your CareProfile lives on :)", "error");
+        swal("Cancelled", "" + currentProfile.name + "'s CareProfile lives on :)", "error");
       }
     });
   }; //end deleteProfile
