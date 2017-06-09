@@ -53,6 +53,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       age: vm.ageIn,
       basicInfo: vm.basicInfoIn,
       careInfo: vm.careInfoIn,
+      emergencyContacts: vm.emergencyContactsIn,
       userCreated: vm.userId,
       sharedWith: []
     };

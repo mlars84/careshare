@@ -4,10 +4,11 @@
   <h4>Add a profile of someone or something in your life that needs some care.</h4>
   <form class="careProfileInputs" action="index.html" method="post">
     <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
-    <input ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
-    <input ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
-    <input ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
-    <input ng-model="pc.careInfoIn" type="text" placeholder="Care info" value="" size="50"><br><br>
+    <input class="inputs" ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
+    <input class="inputs" ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
+    <input class="inputs" ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
+    <input class="inputs" g-model="pc.careInfoIn" type="text" placeholder="CareInfo" value="" size="50"><br><br>
+    <input class="inputs" ng-model="pc.emergencyContactsIn" type="text" placeholder="Emergency Contacts" value="" size="50"><br><br>
     <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
   </form>
 </div>
@@ -21,10 +22,11 @@
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div class="profileText">
       <ul>
-        <h3>NAME: </h3><ul><a href="#" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
-        <h4>Age: </h4><ul><a href="#" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
-        <h4>Basic Info: </h4><ul><a href="#" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
-        <h4>Care Info: </h4><ul><a href="#" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update care info!' }}</a></ul>
+        <h3>NAME: </h3><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
+        <h4>Age: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
+        <h4>Basic Info: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
+        <h4>CareInfo: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update CareInfo!' }}</a></ul>
+        <h4>Emergency Contacts: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.emergencyContacts" e-rows="7" e-cols="40">{{ prof.emergencyContacts || 'Add or update Emergency Contacts!' }}</a><br></ul>
       </ul>
       <div class="sharedWithDiv">
         <h4>You've shared {{prof.name}} with:</h4>

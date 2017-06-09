@@ -36,10 +36,15 @@ div[ng-app] {
   margin: 50px;
 }
 
+.inputs {
+  background-color: #E9E3B4;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 a {
   color: #E9E3B4;
   font-weight: 400;
-  transition: all .4s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 a:hover {
