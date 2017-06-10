@@ -67,7 +67,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       console.log('back from server with =>', res.data);
       vm.clearInputs();
       vm.getUserProfiles();
-      swal("Good job!", "CareProfile created!", "success");
+      swal("Good job!", "CareProfile created! Scroll down to check it out.", "success");
     });
   }; //end addProfile
 
