@@ -8,7 +8,7 @@
 }
 
 .aHome:hover {
-  transform: #E9E3B4;
+  transform: #3E6990;
 }
 
 .jumbotron {
@@ -131,7 +131,7 @@ body {
 
 .profileBtn {
   margin: 1vmin 1vmin 1vmin 1vmin;
-  border: 1px solid #AABD8C;
+  border: 1px solid #3E6990;
   background-color: #AABD8C;
   color: #E9E3B4;
   transition: all .4s ease-in-out;
@@ -140,6 +140,10 @@ body {
 .profileBtn:hover {
   color: #AABD8C;
   background-color: #E9E3B4;
+}
+
+.bigShareBtn {
+
 }
 
 .btn-info {
