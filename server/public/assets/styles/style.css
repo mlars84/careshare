@@ -117,10 +117,6 @@ body {
   background-color: #E9E3B4;
 }
 
-.profileText:hover {
-  color: #E9E3B4;
-}
-
 .profileBtn {
   margin: 1vmin 1vmin 1vmin 1vmin;
   border: 1px solid #3E6990;
