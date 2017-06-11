@@ -3,14 +3,6 @@
   font-size: 10vmax;
 }
 
-.aHome {
-  transition: all 1s ease-in-out;
-}
-
-.aHome:hover {
-  transform: #3E6990;
-}
-
 .jumbotron {
   text-align: center;
   background-color: #E9E3B4;

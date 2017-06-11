@@ -1,4 +1,4 @@
-myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorScroll', 'profileService', function($scope, $http, $location, $anchorScroll, profileService) {
+myApp.controller('profileController', ['$scope', '$http', '$location', 'profileService', function($scope, $http, $location, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   const vm = this;
 
@@ -117,8 +117,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorS
   //function to share the profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
-    $location('.jumbotron');
-    $anchorScroll();
     $location.path('/careshare');
   }; //end shareProfile
 

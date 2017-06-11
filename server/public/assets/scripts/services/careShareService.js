@@ -1,10 +1,8 @@
-myApp.service('careShareService', ['$http', '$location', '$anchorScroll', function($http, $location, $anchorScroll) {
+myApp.service('careShareService', ['$http', '$location', function($http, $location) {
   const vm = this;
   vm.users = {list: []};
   vm.profiles = {names: []};
   vm.careShares = {shares: []};
-
-  $anchorScroll();
 
   vm.checkUserSession = function() {
     $http.get('/user').then(function(response) {
