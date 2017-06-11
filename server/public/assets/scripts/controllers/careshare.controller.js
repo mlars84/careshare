@@ -26,6 +26,6 @@ myApp.controller('CareShareController', ['careShareService', '$scope', '$window'
 
   $scope.$on('$viewContentLoaded', function () {
     $window.scrollTo(0, 0);
-
+  });
 
 }]);
