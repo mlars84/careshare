@@ -1,4 +1,4 @@
-myApp.controller('CareShareController', ['careShareService', '$scope', '$window', function(careShareService, $scope, $window) {
+myApp.controller('CareShareController', ['careShareService', function(careShareService) {
   console.log('made it to CareShareController');
 
   const self = this;
@@ -23,9 +23,5 @@ myApp.controller('CareShareController', ['careShareService', '$scope', '$window'
   self.careShares = careShareService.careShares;
 
   self.unShareProfile = careShareService.unShareProfile;
-
-  $scope.$on('$viewContentLoaded', function () {
-    $window.scrollTo(0, 0);
-  });
 
 }]);

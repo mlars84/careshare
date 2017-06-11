@@ -1,12 +1,10 @@
 const myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll', function($routeProvider, $locationProvider, $location, $anchorScroll) {
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
   // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
-  $location.hash('top');
-  $anchorScroll();
 
   $routeProvider
     .when('/', {
@@ -36,12 +34,5 @@ myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
-
-
-// myApp.run(function($rootScope, $anchorScroll){
-//    $rootScope.$on("$locationChangeSuccess", function(){
-//        $anchorScroll();
-//    });
-// });
 
 }]);
