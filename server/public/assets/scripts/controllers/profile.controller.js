@@ -1,4 +1,4 @@
-myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorScroll', 'profileService', function($scope, $http, $location, profileService) {
+myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorScroll', 'profileService', function($scope, $http, $location, $anchorScroll, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   const vm = this;
 
