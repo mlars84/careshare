@@ -5,6 +5,8 @@ myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll
   // get rid of 1.6.4 #!
   // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
+  $location.hash('top');
+  $anchorScroll();
 
   $routeProvider
     .when('/', {
@@ -30,9 +32,6 @@ myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll
     .otherwise({
       redirectTo: '/home'
     });
-
-    $location.hash('top');
-    $anchorScroll();
 
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
