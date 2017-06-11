@@ -25,11 +25,11 @@
     <img class="profImg" ng-src="{{prof.imageUrl}}" alt="" height="50%" width="50%">
     <div class="profileText">
       <ul>
-        <h3>NAME: </h3><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
-        <h4>Age: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
-        <h4>Basic Info: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
-        <h4>CareInfo: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update CareInfo!' }}</a></ul>
-        <h4>Emergency Contacts: </h4><ul><a href="#" e-style="background-color: #E9E3B4" editable-textarea="prof.emergencyContacts" e-rows="7" e-cols="40">{{ prof.emergencyContacts || 'Add or update Emergency Contacts!' }}</a><br></ul>
+        <h3>NAME: </h3><ul><a href="#" class="editableText" e-style="background-color: #E9E3B4" editable-textarea="prof.name" e-rows="7" e-cols="40">{{ prof.name || 'Add or update name!' }}</a><br></ul>
+        <h4>Age: </h4><ul><a href="#" class="editableText" e-style="background-color: #E9E3B4" editable-textarea="prof.age">{{ prof.age || 'Add or update age!' }}</a><br></ul>
+        <h4>Basic Info: </h4><ul><a href="#" class="editableText" e-style="background-color: #E9E3B4" editable-textarea="prof.basicInfo" e-rows="7" e-cols="40">{{ prof.basicInfo || 'Add or update basic info!' }}</a><br></ul>
+        <h4>CareInfo: </h4><ul><a href="#" class="editableText" e-style="background-color: #E9E3B4" editable-textarea="prof.careInfo" e-rows="7" e-cols="40">{{ prof.careInfo || 'Add or update CareInfo!' }}</a></ul>
+        <h4>Emergency Contacts: </h4><ul><a href="#" class="editableText" e-style="background-color: #E9E3B4" editable-textarea="prof.emergencyContacts" e-rows="7" e-cols="40">{{ prof.emergencyContacts || 'Add or update Emergency Contacts!' }}</a><br></ul>
         <div class="sharedWithDiv">
           <h4>You've shared {{prof.name}} with:</h4>
           <select class="sharedWithDropDown"  ng-model="pc.selectedSharedWith" ng-options="sharedProf.username for sharedProf in prof.sharedWith">
