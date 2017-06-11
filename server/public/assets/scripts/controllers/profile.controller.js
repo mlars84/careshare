@@ -1,4 +1,4 @@
-myApp.controller('profileController', ['$scope', '$http', '$location', 'profileService', function($scope, $http, $location, profileService) {
+myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorScroll', 'profileService', function($scope, $http, $location, profileService) {
   // This happens after view/controller loads -- not ideal but it works for now.
   const vm = this;
 
@@ -118,6 +118,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.shareProfile = function() {
     console.log('share button clicked!');
     $location.path('/careshare');
+    $anchorScroll();
   }; //end shareProfile
 
   //function to unshare a profile based on selectedSharedWith from profile.html
