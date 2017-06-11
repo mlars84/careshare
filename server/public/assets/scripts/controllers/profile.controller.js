@@ -117,7 +117,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorS
   //function to share the profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
-    $location.hash('top');
+    $location.hash('.jumbotron');
     $anchorScroll();
     $location.path('/careshare');
   }; //end shareProfile
