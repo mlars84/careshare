@@ -39,16 +39,6 @@ a {
 }
 
 a:hover {
-  color: #E9E3B4;
-}
-
-.editableText {
-  color: #E9E3B4;
-  font-weight: 400;
-  transition: all 1s ease-in-out;
-}
-
-.editableText:hover {
   color: #AABD8C;
 }
 
