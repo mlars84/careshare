@@ -118,6 +118,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorS
   vm.shareProfile = function() {
     console.log('share button clicked!');
     $location.path('/careshare');
+    $location.hash('.shareText');
     $anchorScroll();
   }; //end shareProfile
 
