@@ -1,7 +1,7 @@
 const myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
   // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
@@ -31,14 +31,18 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       redirectTo: '/home'
     });
 
+    $location.hash('top');
+    $anchorScroll();
+
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
 
-myApp.run(function($rootScope, Auth, $state, $anchorScroll){
-   $rootScope.$on("$locationChangeSuccess", function(){
-       $anchorScroll();
-   });
-});
+
+// myApp.run(function($rootScope, $anchorScroll){
+//    $rootScope.$on("$locationChangeSuccess", function(){
+//        $anchorScroll();
+//    });
+// });
 
 }]);
