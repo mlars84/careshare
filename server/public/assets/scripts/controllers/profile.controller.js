@@ -117,9 +117,9 @@ myApp.controller('profileController', ['$scope', '$http', '$location', '$anchorS
   //function to share the profile with another user
   vm.shareProfile = function() {
     console.log('share button clicked!');
-    $location.path('/careshare');
     $location.hash('.shareText');
     $anchorScroll();
+    $location.path('/careshare');
   }; //end shareProfile
 
   //function to unshare a profile based on selectedSharedWith from profile.html
