@@ -1,7 +1,7 @@
 const myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll', function($routeProvider, $locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider', '$location', '$anchorScroll', function($routeProvider, $locationProvider, $location, $anchorScroll) {
   // get rid of 1.6.4 #!
   // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
