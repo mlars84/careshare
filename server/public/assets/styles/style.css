@@ -135,7 +135,16 @@ body {
 }
 
 .bigShareBtn {
+  margin: 1vmin 1vmin 1vmin 1vmin;
+  border: 1px solid #3E6990;
+  background-color: #AABD8C;
+  color: #E9E3B4;
+  transition: all .4s ease-in-out;
+}
 
+.bigShareBtn:hover {
+  color: #AABD8C;
+  background-color: #E9E3B4;
 }
 
 .btn-info {
