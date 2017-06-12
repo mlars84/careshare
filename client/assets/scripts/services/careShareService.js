@@ -66,8 +66,6 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
 
   //function to share a profile with another user
   vm.shareProfile = function(user, profile) {
-
-
     const careShareToSend = {userToShareWith: user, careProfileToShare: profile};
     $http({
       method: 'PUT',

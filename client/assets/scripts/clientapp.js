@@ -3,7 +3,6 @@ const myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
-  // $locationProvider.hashPrefix('');
   $locationProvider.html5Mode(true);
 
   $routeProvider
