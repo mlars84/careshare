@@ -8,26 +8,21 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.showPicker = function() {
     var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
     client.pick({}).then(function(result) {
-      
       vm.pix = {url: result.filesUploaded[0].url};
-      
     });
   }; //end showPicker
-
 
   //$scope for filestack
   $scope.nameIn ={
     imageUrl: 'Profile Name'
   };
 
-  
   // Upon load, check this user's session on the server
   $http.get('/user').then(function(response) {
     if(response.data.username) {
       // user has a curret session on the server
       vm.userName = response.data.username;
       vm.userId = response.data._id;
-      
       vm.getUserProfiles();
     } else {
       // user has no session, bounce them back to the login page
@@ -38,7 +33,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   //Passport function to logout user
   vm.logout = function() {
     $http.get('/user/logout').then(function(res) {
-      
       swal('Thanks for CareSharing!');
       $location.path("/home");
     });
@@ -46,7 +40,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //function to add a profile once a user is authenticated
   vm.addProfile = function() {
-    
     //object to send to DB via user.js route from inputs on DOM
     var profileToSend = {
       imageUrl: vm.pix.url,
@@ -58,13 +51,11 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       userCreated: vm.userId,
       sharedWith: []
     };
-    
     $http({
       method: 'POST',
       url: '/user/addProfile',
       data: profileToSend
     }).then(function(res) {
-      
       vm.clearInputs();
       vm.getUserProfiles();
       swal("Good job!", "CareProfile created! Scroll down to check it out.", "success");
@@ -83,18 +74,14 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //function to get specific user profiles
   vm.getUserProfiles = function() {
-    
     $http({
       method: 'GET',
       url: '/user/getUserProfiles'
     }).then(function(res) {
-      
       vm.userProfiles = [];
       for (var i = 0; i < res.data.length; i++) {
-        
         if(res.data[i].userCreated === vm.userId){
           vm.userProfiles.push(res.data[i]);
-          
         }
       }
     });
@@ -102,13 +89,11 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //function to update the profile after the user as edited it
   vm.updateProfile = function(profile) {
-    
     $http({
       method: 'PUT',
       url: '/user/updateProfile',
       data: profile
     }).then(function(res) {
-      
       vm.getUserProfiles();
       swal('' + profile.name + ' has been updated!');
     });
@@ -116,14 +101,11 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //function to share the profile with another user
   vm.shareProfile = function() {
-    
     $location.path('/careshare');
   }; //end shareProfile
 
   //function to unshare a profile based on selectedSharedWith from profile.html
   vm.unShare = function(profileToUnshare, currentProfile) {
-    
-    
     swal({
       title: "Are you sure?",
       text: "This will unshare " + currentProfile.name +" with " + profileToUnshare.username + "!",
@@ -144,7 +126,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
           url: '/user/unShare',
           data: objectToSend
         }).then(function(res) {
-          
           vm.getUserProfiles();
         });
       } else {
@@ -155,7 +136,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   //function to delete a careprofile from the database
   vm.deleteProfile = function(id, profileToUnshare, currentProfile) {
-    
     swal({
       title: "Are you sure?",
       text: "You will not be able to recover " + currentProfile.name + "'s CareProfile!",
@@ -173,7 +153,6 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
           method: 'DELETE', url: '/user/deleteProfile',
           params: { id: id }
         }).then(function(res) {
-          
           vm.getUserProfiles();
         });
       } else {

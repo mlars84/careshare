@@ -1,5 +1,4 @@
 myApp.controller('LoginController', ['loginService', function(loginService) {
-  
 
   const self = this;
 
@@ -8,6 +7,5 @@ myApp.controller('LoginController', ['loginService', function(loginService) {
   self.login = loginService.login;
 
   self.registerUser = loginService.registerUser;
-
 
 }]); //end LoginController
