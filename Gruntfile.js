@@ -4,13 +4,13 @@ module.exports = function(grunt){
     removelogging: {
       dist: {
         // Clean up all js file inside "dist" or its subfolders
-        src: ['server/public/assets/scripts/controllers/careshare.controller.min.js',
-              'server/public/assets/scripts/controllers/login.controller.min.js',
-              'server/public/assets/scripts/controllers/profile.controller.min.js',
-              'server/public/assets/scripts/services/careShareService.min.js',
-              'server/public/assets/scripts/services/loginService.min.js',
-              'server/public/assets/scripts/services/profileService.min.js',
-              'server/public/assets/scripts/clientapp.min.js'],
+        src: ['client/assets/scripts/controllers/careshare.controller.js',
+              'client/assets/scripts/controllers/login.controller.js',
+              'client/assets/scripts/controllers/profile.controller.js',
+              'client/assets/scripts/services/careShareService.js',
+              'client/assets/scripts/services/loginService.js',
+              'client/assets/scripts/services/profileService.js',
+              'client/assets/scripts/clientapp.js'],
       }
     }, //end removelogging
     uglify: {

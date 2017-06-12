@@ -1,5 +1,5 @@
 myApp.controller('LoginController', ['loginService', function(loginService) {
-  console.log('LoginController loaded');
+  
 
   const self = this;
 
