@@ -32,6 +32,10 @@ select {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.aHome {
+  color: #E9E3B4;
+}
+
 a {
   color: #E9E3B4;
   font-weight: 400;
@@ -41,11 +45,6 @@ a {
 a:hover {
   color: #AABD8C;
 }
-
-.editable-controls input, .editable-select select{
-    color: green;
-    font-weight: bold;
- }
 
 p {
   text-align: center;
