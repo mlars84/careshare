@@ -42,6 +42,11 @@ a:hover {
   color: #AABD8C;
 }
 
+.editable-controls input, .editable-select select{
+    color: green;
+    font-weight: bold;
+ }
+
 p {
   text-align: center;
   color: red;
