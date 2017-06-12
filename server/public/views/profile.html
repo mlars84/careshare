@@ -4,11 +4,11 @@
   <h4>Add a profile of someone or something in your life that needs some care.</h4>
   <form class="careProfileInputs" action="index.html" method="post">
     <input type="button" value="Upload Image" ng-click="pc.showPicker(pic)" class="btn btn-info"/>
-    <input class="inputs" ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
-    <input class="inputs" ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
-    <input class="inputs" ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
-    <input class="inputs" ng-model="pc.careInfoIn" type="text" placeholder="CareInfo" value="" size="50"><br><br>
-    <input class="inputs" ng-model="pc.emergencyContactsIn" type="text" placeholder="Emergency Contacts" value="" size="50"><br><br>
+    <input class="inputs" tabindex="1" ng-model="pc.nameIn" type="text" placeholder="name" value=""><br><br>
+    <input class="inputs" tabindex="2" ng-model="pc.ageIn" type="text" placeholder="age" value=""><br><br>
+    <input class="inputs" tabindex="3" ng-model="pc.basicInfoIn" type="text" placeholder="Basic Info" value="" size="50"><br><br>
+    <input class="inputs" tabindex="4" ng-model="pc.careInfoIn" type="text" placeholder="CareInfo" value="" size="50"><br><br>
+    <input class="inputs" tabindex="5" ng-model="pc.emergencyContactsIn" type="text" placeholder="Emergency Contacts" value="" size="50"><br><br>
     <button ng-click="pc.addProfile()" type="button" name="button" class="btn btn-info">Submit</button>
     <div ng-if="">
 
