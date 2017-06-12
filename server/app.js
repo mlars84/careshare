@@ -56,13 +56,13 @@ const mongoDB = mongoose.connect(mongoURI).connection;
 
 mongoDB.on('error', function(err){
    if(err) {
-     console.log("MONGO ERROR: ", err);
+     
    }
    res.sendStatus(500);
 });
 
 mongoDB.once('open', function(){
-   console.log("Connected to Mongo, meow!");
+   
 });
 
 // App Set //
@@ -70,5 +70,5 @@ app.set('port', (process.env.PORT || 5000));
 
 // Listen //
 app.listen(app.get("port"), function(){
-   console.log("Listening on port: " + app.get("port"));
+   
 });

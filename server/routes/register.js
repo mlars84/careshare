@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
            next(err);
          } else {
 
-          console.log('user created');
+          
           // route a new express request for GET '/'
           res.sendStatus(200);
          }

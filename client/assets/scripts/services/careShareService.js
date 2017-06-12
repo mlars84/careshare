@@ -30,7 +30,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       console.log(res.data);
       vm.users.list = [];
       console.log(vm.users.list);
-      for (let i = 0; i < res.data.length; i++) {
+      for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].username, vm.userName);
         if (res.data[i].username !== vm.userName) {
           vm.users.list.push(res.data[i]);
@@ -50,7 +50,7 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
       console.log('res.data =>', res.data);
       vm.profiles.names = [];
       vm.getCareShares(res.data);
-      for (let i = 0; i < res.data.length; i++) {
+      for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
           vm.profiles.names.push(res.data[i]);
@@ -94,10 +94,10 @@ myApp.service('careShareService', ['$http', '$location', function($http, $locati
     console.log('in getCareShares function');
     console.log(allProfiles);
     vm.careShares.shares = [];
-    for (let i = 0; i < allProfiles.length; i++) {
+    for (var i = 0; i < allProfiles.length; i++) {
       console.log('allProfiles[i] =>', allProfiles[i]);
-      let sharedWithArray = allProfiles[i].sharedWith;
-      for (let j = 0; j < sharedWithArray.length; j++) {
+      var sharedWithArray = allProfiles[i].sharedWith;
+      for (var j = 0; j < sharedWithArray.length; j++) {
         console.log('sharedWithArray[j] =>', sharedWithArray[j]);
         if(sharedWithArray[j].userId == vm.userId) {
           console.log(sharedWithArray[j].userId);

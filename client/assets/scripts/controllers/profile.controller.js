@@ -6,7 +6,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
-    let client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
+    var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
     client.pick({}).then(function(result) {
       console.log('returned URL: ', result.filesUploaded[0].url);
       vm.pix = {url: result.filesUploaded[0].url};
@@ -48,7 +48,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.addProfile = function() {
     console.log('clicked submit');
     //object to send to DB via user.js route from inputs on DOM
-    let profileToSend = {
+    var profileToSend = {
       imageUrl: vm.pix.url,
       name: vm.nameIn,
       age: vm.ageIn,
@@ -90,7 +90,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     }).then(function(res) {
       console.log('res.data =>', res.data, 'vm.userId =>', vm.userId);
       vm.userProfiles = [];
-      for (let i = 0; i < res.data.length; i++) {
+      for (var i = 0; i < res.data.length; i++) {
         console.log(res.data[i].userCreated);
         if(res.data[i].userCreated === vm.userId){
           vm.userProfiles.push(res.data[i]);
@@ -138,7 +138,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
     function(isConfirm){
       if (isConfirm) {
         swal("Unshared!", "No worries, you can always CareShare again if you'd like.", "success");
-        let objectToSend = {profileToUnshare: profileToUnshare, currentProfile: currentProfile};
+        var objectToSend = {profileToUnshare: profileToUnshare, currentProfile: currentProfile};
         $http({
           method: 'PUT',
           url: '/user/unShare',
@@ -180,5 +180,5 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
         swal("Cancelled", "" + currentProfile.name + "'s CareProfile lives on :)", "error");
       }
     });
-  }; //end deleteProfile
+  }; //end devareProfile
 }]); //end profileController
