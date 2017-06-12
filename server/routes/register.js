@@ -16,8 +16,6 @@ router.post('/', function(req, res, next) {
            // next() here would continue on and route to routes/index.js
            next(err);
          } else {
-
-          
           // route a new express request for GET '/'
           res.sendStatus(200);
          }

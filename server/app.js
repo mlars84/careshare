@@ -56,19 +56,16 @@ const mongoDB = mongoose.connect(mongoURI).connection;
 
 mongoDB.on('error', function(err){
    if(err) {
-     
    }
    res.sendStatus(500);
 });
 
 mongoDB.once('open', function(){
-   
 });
 
 // App Set //
 app.set('port', (process.env.PORT || 5000));
 
 // Listen //
-app.listen(app.get("port"), function(){
-   
+app.listen(app.get("port"), function(){   
 });

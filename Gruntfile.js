@@ -37,8 +37,7 @@ module.exports = function(grunt){
             tasks: ['uglify', 'removelogging']
           }
         });//end watch
-
-      // grunt.loadNpmTasks('grunt-contrib-copy');
+        
       grunt.loadNpmTasks("grunt-remove-logging");
       grunt.loadNpmTasks('grunt-contrib-uglify');
       grunt.loadNpmTasks('grunt-contrib-watch');

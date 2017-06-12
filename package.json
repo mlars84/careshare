@@ -1,13 +1,14 @@
 {
   "name": "CareShare",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application to create and share careprofiles with caregivers.",
   "main": "index.js",
   "scripts": {
     "test": "nodemon server/app.js",
     "start": "node server/app.js"
   },
-  "author": "Scott Bromander, Kris Szafranski",
+  "author": "Matt Larson",
+  "passport auth author": "Scott Bromander, Kris Szafranski",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
@@ -18,9 +19,7 @@
     "bootstrap": "^3.3.5",
     "express": "^4.13.1",
     "express-session": "^1.13.0",
-    "jquery": "^2.1.4",
     "mongoose": "^4.4.6",
-    "nodemailer": "^4.0.1",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
     "path": "^0.11.14",
