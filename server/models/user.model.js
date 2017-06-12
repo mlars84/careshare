@@ -13,21 +13,17 @@ const UserSchema = new Schema({
 // Called before adding a new user to the DB. Encrypts password.
 UserSchema.pre('save', function(next) {
     const user = this;
-
     if(!user.isModified('password')) {
       return next();
     }
-
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
         if(err) {
           return next(err);
         }
-
         bcrypt.hash(user.password, salt, function(err, hash) {
             if(err) {
               return next(err);
             }
-
             user.password = hash;
             next();
         });
@@ -41,7 +37,6 @@ UserSchema.methods.comparePassword = function(candidatePassword, callback) {
         if(err) {
           return callback(err);
         }
-
         callback(null, isMatch);
     });
 };
