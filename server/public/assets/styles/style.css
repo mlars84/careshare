@@ -43,7 +43,7 @@ select {
 }
 
 .editableText:hover {
-  color: #AABD8C;
+  color: #AABD8C !important;
 }
 
 p {

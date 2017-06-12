@@ -40,8 +40,7 @@ module.exports = function(grunt){
             dist: {
               // Clean up all js file inside "dist" or its subfolders
               src: ['client/assets/*.js', 'client/assets/controllers/*.js',
-              'client/assests/services/*.js', 'server/models/*.js', 'server/public/assets/*.js',
-              'server/routes/*.js', 'server/strategies/*.js', 'server/app.js'],
+              'client/assests/services/*.js'],
             }
           }
           });//end uglify
