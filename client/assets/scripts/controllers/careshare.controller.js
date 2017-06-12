@@ -1,5 +1,5 @@
 myApp.controller('CareShareController', ['careShareService', function(careShareService) {
-  console.log('made it to CareShareController');
+  
 
   const self = this;
 

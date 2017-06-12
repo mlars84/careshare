@@ -35,12 +35,17 @@ module.exports = function(grunt){
           //     dest: '',
           //   },
           // },
-          // Configure grunt-remove-logging
+          // grunt-remove-logging
           removelogging: {
             dist: {
               // Clean up all js file inside "dist" or its subfolders
-              src: ['client/assets/*.js', 'client/assets/controllers/*.js',
-              'client/assests/services/*.js'],
+              src: ['server/public/assets/scripts/controllers/careshare.controller.min.js',
+                    'server/public/assets/scripts/controllers/login.controller.min.js',
+                    'server/public/assets/scripts/controllers/profile.controller.min.js',
+                    'server/public/assets/scripts/services/careShareService.min.js',
+                    'server/public/assets/scripts/services/loginService.min.js',
+                    'server/public/assets/scripts/services/profileService.min.js',
+                    'server/public/assets/scripts/clientapp.min.js'],
             }
           }
           });//end uglify
