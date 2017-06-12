@@ -1,6 +1,9 @@
 module.exports = function(grunt){
   grunt.initConfig({
     uglify: {
+      options: {
+        mangle: false
+    },
       my_target: {
         files: {
             //destination : [target]
