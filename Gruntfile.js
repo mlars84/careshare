@@ -1,5 +1,18 @@
 module.exports = function(grunt){
   grunt.initConfig({
+    // grunt-remove-logging
+    removelogging: {
+      dist: {
+        // Clean up all js file inside "dist" or its subfolders
+        src: ['server/public/assets/scripts/controllers/careshare.controller.min.js',
+              'server/public/assets/scripts/controllers/login.controller.min.js',
+              'server/public/assets/scripts/controllers/profile.controller.min.js',
+              'server/public/assets/scripts/services/careShareService.min.js',
+              'server/public/assets/scripts/services/loginService.min.js',
+              'server/public/assets/scripts/services/profileService.min.js',
+              'server/public/assets/scripts/clientapp.min.js'],
+      }
+    }, //end removelogging
     uglify: {
       options: {
         mangle: false
@@ -18,44 +31,17 @@ module.exports = function(grunt){
             //service and controller need to be separate
             }
           }
-        },
+        }, //end uglify
           watch: {
-            files: ['client/assets/*.js', 'client/assets/controllers/*.js', 'client/assests/services/*.js'],
-            tasks: ['uglify']
-          },
-          // copy: {
-          //   main: {
-          //     // Allow creating the list of files dinamically (http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically)
-          //     expand: true,
-          //     // Execute the command from inside the /src folder
-          //     cwd: '',
-          //     // Also copy subfolders
-          //     src: '',
-          //     // Put the final files inside /dist
-          //     dest: '',
-          //   },
-          // },
-          // grunt-remove-logging
-          removelogging: {
-            dist: {
-              // Clean up all js file inside "dist" or its subfolders
-              src: ['server/public/assets/scripts/controllers/careshare.controller.min.js',
-                    'server/public/assets/scripts/controllers/login.controller.min.js',
-                    'server/public/assets/scripts/controllers/profile.controller.min.js',
-                    'server/public/assets/scripts/services/careShareService.min.js',
-                    'server/public/assets/scripts/services/loginService.min.js',
-                    'server/public/assets/scripts/services/profileService.min.js',
-                    'server/public/assets/scripts/clientapp.min.js'],
-            }
+            files: ['client/assets/*.js', 'client/assets/controllers/*.js', 'client/assests/services/*.js', 'server/assets/*.js', 'server/assets/controllers/*.js', 'server/assets/services/*.js'],
+            tasks: ['uglify', 'removelogging']
           }
-          });//end uglify
+        });//end watch
 
       // grunt.loadNpmTasks('grunt-contrib-copy');
       grunt.loadNpmTasks("grunt-remove-logging");
-      grunt.loadNpmTasks('grunt-contrib-watch');
       grunt.loadNpmTasks('grunt-contrib-uglify');
-
-      //grunt name
+      grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['removelogging', 'uglify', 'watch']);
 };
