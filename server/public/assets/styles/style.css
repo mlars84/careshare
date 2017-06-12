@@ -37,9 +37,9 @@ select {
 }
 
 .editableText {
-  color: #E9E3B4;
-  font-weight: 400;
-  transition: all 1s ease-in-out;
+  color: #E9E3B4 !important;
+  font-weight: 400 !important;
+  transition: all 1s ease-in-out !important;
 }
 
 .editableText:hover {
