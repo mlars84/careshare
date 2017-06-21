@@ -3,6 +3,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   const vm = this;
 
   vm.userProfiles = [];
+  vm.pix = '';
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
