@@ -11,6 +11,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
       vm.pix = {url: result.filesUploaded[0].url};
     });
   }; //end showPicker
+  vm.showPicker();
 
   //$scope for filestack
   $scope.nameIn ={
