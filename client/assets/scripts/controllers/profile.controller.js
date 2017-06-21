@@ -6,7 +6,7 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
 
   // function to use filestack to add image url to DB
   vm.showPicker = function() {
-    var client = filestack.init('AJeDIunS3iZNiN6Db8FQHz');
+    var client = filestack.init('ArXNtpO4Rwsqv9KTeHucgz');
     client.pick({}).then(function(result) {
       vm.pix = {url: result.filesUploaded[0].url};
     });
