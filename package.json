@@ -2,6 +2,9 @@
   "name": "CareShare",
   "version": "1.0.0",
   "description": "An application to create and share careprofiles with caregivers.",
+  "engines": {
+    "node": "v7.10.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "nodemon server/app.js",
