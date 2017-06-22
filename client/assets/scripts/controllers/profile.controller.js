@@ -9,7 +9,9 @@ myApp.controller('profileController', ['$scope', '$http', '$location', 'profileS
   vm.showPicker = function(pix) {
     var client = filestack.init('ArXNtpO4Rwsqv9KTeHucgz');
     client.pick({}).then(function(result) {
+      console.log(result.filesUploaded[0].url);
       vm.pix = {url: result.filesUploaded[0].url};
+      console.log(vm.pix);
     });
   }; //end showPicker
   vm.showPicker();
