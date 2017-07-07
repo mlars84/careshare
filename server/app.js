@@ -47,8 +47,9 @@ if(process.env.MONGODB_URI !== undefined) {
     // use the string value of the environment constiable
     mongoURI = process.env.MONGODB_URI;
 } else {
-    // use the local database server
+    // use heroku server or local server
     mongoURI = 'mongodb://heroku_xm0mm9h3:kpshdu58bic5tl4rki7frhslam@ds119682.mlab.com:19682/heroku_xm0mm9h3 k ';
+    // mongoURI = "mongodb://localhost:27017/careshare";
 }
 
 // const mongoURI = "mongodb://localhost:27017/careshare";

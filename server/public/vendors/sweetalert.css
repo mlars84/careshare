@@ -17,7 +17,7 @@ body.stop-scrolling {
   z-index: 10000; }
 
 .sweet-alert {
-  background-color: #E9E3B4;
+  background-color: white;
   font-family: 'Ubuntu', sans-serif;
   width: 478px;
   padding: 17px;
@@ -83,7 +83,7 @@ body.stop-scrolling {
       height: 24px;
       border-radius: 50%;
       background-color: #ea7d7d;
-      color: #E9E3B4;
+      color: white;
       line-height: 24px;
       text-align: center;
       margin-right: 3px; }
@@ -171,7 +171,7 @@ body.stop-scrolling {
     visibility: hidden; }
   .sweet-alert button {
     background-color: #8CD4F5;
-    color: #E9E3B4;
+    color: white;
     border: none;
     box-shadow: none;
     font-size: 17px;
@@ -296,7 +296,7 @@ body.stop-scrolling {
         position: absolute;
         width: 60px;
         height: 120px;
-        background: #E9E3B4;
+        background: white;
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg); }
       .sweet-alert .sa-icon.sa-success::before {
@@ -332,7 +332,7 @@ body.stop-scrolling {
       .sweet-alert .sa-icon.sa-success .sa-fix {
         width: 5px;
         height: 90px;
-        background-color: #E9E3B4;
+        background-color: white;
         position: absolute;
         left: 28px;
         top: 8px;
