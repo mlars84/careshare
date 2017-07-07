@@ -1,5 +1,5 @@
 # CareShare
-CareShare is a full-stack web application that allows users to create profiles of elements in their life that need caring for (i.e., children, pets, plants, house, etc). The user chooses what to include in the profile and who to share/unshare it with.
+CareShare is a full-stack web application that allows users to create profiles of elements in their life that need caring for (i.e., children, pets, plants, house, etc). The user chooses what to include in the profiles and who to share/unshare them with.
 http://caresharepsi.herokuapp.com/
 
 ## Getting Started
