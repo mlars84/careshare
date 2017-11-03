@@ -48,8 +48,8 @@ if(process.env.MONGODB_URI !== undefined) {
     mongoURI = process.env.MONGODB_URI;
 } else {
     // use heroku server or local server
-    mongoURI = 'mongodb://heroku_xm0mm9h3:kpshdu58bic5tl4rki7frhslam@ds119682.mlab.com:19682/heroku_xm0mm9h3 k ';
-    // mongoURI = "mongodb://localhost:27017/careshare";
+    // mongoURI = 'mongodb://heroku_xm0mm9h3:kpshdu58bic5tl4rki7frhslam@ds119682.mlab.com:19682/heroku_xm0mm9h3 k ';
+    mongoURI = "mongodb://localhost:27017/careshare";
 }
 
 // const mongoURI = "mongodb://localhost:27017/careshare";
